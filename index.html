@@ -133,20 +133,43 @@
   <!-- MAIN VIEWPORT -->
   <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
     
-    <!-- ================= TAB 1: HOME (LOCKED) ================= -->
+    <!-- TAB 1: HOME -->
     <section id="content-home" class="tab-content block space-y-10">
-      <!-- HERO SECTION -->
-      <div class="space-y-4">
-        <h1 class="heading-font text-4xl md:text-5xl font-bold text-white tracking-wide">
-          Pilli Lalith Sriharsha
-        </h1>
-        <p class="text-gold font-semibold tracking-wide text-[16px] md:text-[18px]">
-          | Facility Manager | Admin &amp; Customer Support Executive | Quality Analyst (ITV) &amp; Payroll Processor |
-        </p>
+      <!-- HERO SECTION WITH OPTION 1 PORTRAIT -->
+      <div class="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-8 pt-2">
+        <!-- Hero Text Content -->
+        <div class="flex-1 space-y-4 text-center lg:text-left">
+          <h1 class="heading-font text-4xl sm:text-5xl lg:text-[54px] font-bold text-white tracking-wide leading-tight">
+            Pilli Lalith Sriharsha
+          </h1>
+          <p class="text-gold font-semibold tracking-wide text-[16px] md:text-[18px]">
+            | Facility Manager | Admin &amp; Customer Support Executive | Quality Analyst (ITV) &amp; Payroll Processor |
+          </p>
 
-        <p class="justified-text text-slate-300 leading-relaxed text-sm md:text-base pt-2">
-          Results-driven Operations, Quality Assurance, and Administrative Strategist with an established track record spanning complex payroll processing, stringent Income Tax Verification (ITV), comprehensive facility administration, and high-impact client engagement. Highly adept at orchestrating high-volume operational workflows, institutional reporting, rigorous data validation, and multi-tier vendor governance, consistently upholding zero-error accuracy, compliance integrity, and process optimization. Anchored by an advanced academic foundation with an M.Sc. in Computer Science and published research in applied artificial intelligence, I leverage technical agility across modern tooling alongside recognized, award-winning leadership to resolve mission-critical bottlenecks, elevate service excellence, and deliver sustainable operational value.
-        </p>
+          <p class="justified-text text-slate-300 leading-relaxed text-sm md:text-base pt-2">
+            Results-driven Operations, Quality Assurance, and Administrative Strategist with an established track record spanning complex payroll processing, stringent Income Tax Verification (ITV), comprehensive facility administration, and high-impact client engagement. Highly adept at orchestrating high-volume operational workflows, institutional reporting, rigorous data validation, and multi-tier vendor governance, consistently upholding zero-error accuracy, compliance integrity, and process optimization. Anchored by an advanced academic foundation with an M.Sc. in Computer Science and published research in applied artificial intelligence, I leverage technical agility across modern tooling alongside recognized, award-winning leadership to resolve mission-critical bottlenecks, elevate service excellence, and deliver sustainable operational value.
+          </p>
+        </div>
+
+        <!-- Option 1: Executive Portrait Frame with Gold Ambient Glow -->
+        <div class="flex-shrink-0 flex flex-col items-center">
+          <div class="relative group cursor-pointer">
+            <!-- Ambient Glow Effect -->
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-gold/40 via-amber-500/20 to-ice/30 blur-lg opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"></div>
+            
+            <!-- Portrait Container with Frame Hover Effect -->
+            <div class="relative w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-gold/70 bg-deepNavy shadow-[0_0_35px_rgba(212,175,55,0.25)] group-hover:border-gold group-hover:shadow-[0_0_45px_rgba(212,175,55,0.45)] group-hover:-translate-y-1 transition-all duration-500 flex flex-col items-center justify-center">
+              <img 
+                id="executive-photo"
+                src="https://drive.google.com/thumbnail?id=1H2_orAsSBakIghb6aG9lL4KkYGE9Hq-4&sz=w1000" 
+                alt="Pilli Lalith Sriharsha" 
+                class="w-full h-full object-cover object-top"
+                referrerpolicy="no-referrer"
+                onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1H2_orAsSBakIghb6aG9lL4KkYGE9Hq-4';"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- DIRECT INFORMATION SECTION -->
@@ -242,7 +265,7 @@
               <p class="text-xs text-slate-400 mt-0.5">Curriculum Vitae</p>
             </div>
             <div class="mt-4 pt-2.5 border-t border-slate-800/80">
-              <a href="Pilli_Lalith_Sriharsha_Professional_Resume.pdf" target="_blank" rel="noopener noreferrer" class="text-iceLight hover:underline text-xs flex items-center justify-between">
+              <a href="https://drive.google.com/file/d/15Mh-o9lNWsKN7LArNScO2cLQ7bHTKyGD/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-iceLight hover:underline text-xs flex items-center justify-between">
                 <span>Open</span>
                 <span>↗</span>
               </a>
@@ -264,7 +287,7 @@
               <p class="text-xs text-slate-400 mt-0.5">Google Sites Hub</p>
             </div>
             <div class="mt-4 pt-2.5 border-t border-slate-800/80">
-              <a href="https://sites.google.com/view/harshapilli/home" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline text-xs flex items-center justify-between">
+              <a href="https://sites.google.com/view/lalith-sriharsha/home" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline text-xs flex items-center justify-between">
                 <span>Visit</span>
                 <span>↗</span>
               </a>
@@ -845,7 +868,7 @@
         <p class="text-xs text-slate-400 mt-1 font-sans">Direct corporate channels for strategic inquiries and professional opportunities</p>
       </div>
 
-      <div class="max-w-3xl mx-auto bg-cardBg p-6 md:p-8 rounded-2xl border border-slate-800/90 shadow-2xl space-y-6">
+      <div class="max-w-5xl mx-auto bg-cardBg p-6 md:p-8 rounded-2xl border border-slate-800/90 shadow-2xl space-y-6">
         <!-- Identity Summary Header -->
         <div class="space-y-2 border-b border-slate-800/80 pb-5">
           <div class="flex flex-wrap items-center justify-between gap-2">
@@ -859,14 +882,14 @@
           </p>
           <div class="flex items-center space-x-2 text-xs text-slate-400 font-sans pt-1">
             <i data-lucide="map-pin" class="w-3.5 h-3.5 text-iceLight inline"></i>
-            <span>Kovvur / Rajahmundry, Andhra Pradesh, India</span>
+            <span class="heading-font text-[10px]">Kovvur / Rajahmundry, Andhra Pradesh, India</span>
           </div>
         </div>
 
-        <!-- Interactive Engagement Grid -->
+        <!-- Interactive Engagement Grid (All 4 cards with full text visibility, no cutting off) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
           <!-- 1. Direct Phone Dialer Card -->
-          <div class="bg-deepNavy/80 p-5 rounded-xl border border-slate-800 hover:border-gold/50 transition-all flex flex-col justify-between space-y-4 group">
+          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-gold/50 transition-all flex flex-col justify-between space-y-4 group">
             <div class="space-y-2.5">
               <div class="flex items-center justify-between">
                 <div class="w-9 h-9 rounded-lg bg-obsidian border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(212,175,55,0.2)]">
@@ -888,7 +911,7 @@
           </div>
 
           <!-- 2. Direct Mail Composer Card -->
-          <div class="bg-deepNavy/80 p-5 rounded-xl border border-slate-800 hover:border-ice/50 transition-all flex flex-col justify-between space-y-4 group">
+          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-ice/50 transition-all flex flex-col justify-between space-y-4 group">
             <div class="space-y-2.5">
               <div class="flex items-center justify-between">
                 <div class="w-9 h-9 rounded-lg bg-obsidian border border-ice/40 flex items-center justify-center text-iceLight group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(56,189,248,0.2)]">
@@ -899,7 +922,7 @@
                 </span>
               </div>
               <span class="text-xs text-slate-400 block font-sans">Official Email</span>
-              <p class="text-white font-medium text-xs tracking-wide group-hover:text-iceLight transition-colors truncate select-all" title="lalithsriharsha272@gmail.com">
+              <p class="text-white font-medium text-[11.5px] leading-snug tracking-normal group-hover:text-iceLight transition-colors break-all select-all">
                 lalithsriharsha272@gmail.com
               </p>
             </div>
@@ -910,7 +933,7 @@
           </div>
 
           <!-- 3. LinkedIn Official Profile Card -->
-          <div class="bg-deepNavy/80 p-5 rounded-xl border border-slate-800 hover:border-gold/50 transition-all flex flex-col justify-between space-y-4 group">
+          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-gold/50 transition-all flex flex-col justify-between space-y-4 group">
             <div class="space-y-2.5">
               <div class="flex items-center justify-between">
                 <div class="w-9 h-9 rounded-lg bg-obsidian border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(212,175,55,0.2)]">
@@ -923,8 +946,8 @@
                 </span>
               </div>
               <span class="text-xs text-slate-400 block font-sans">LinkedIn Network</span>
-              <p class="text-white font-medium text-xs tracking-wide group-hover:text-gold transition-colors truncate">
-                in/pilli-lalith-sriharsha-5a9780305
+              <p class="text-white font-medium text-[11.5px] leading-snug tracking-normal group-hover:text-gold transition-colors break-all">
+                in/pilli-lalith-sriharsha
               </p>
             </div>
             <a href="https://www.linkedin.com/in/pilli-lalith-sriharsha-5a9780305?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2 px-3 rounded-lg text-xs font-semibold bg-gold/15 text-gold border border-gold/40 hover:bg-gold hover:text-obsidian transition-all shadow-[0_0_10px_rgba(212,175,55,0.2)] flex items-center justify-center space-x-1.5 font-sans">
@@ -936,7 +959,7 @@
           </div>
 
           <!-- 4. Official Website Card -->
-          <div class="bg-deepNavy/80 p-5 rounded-xl border border-slate-800 hover:border-ice/50 transition-all flex flex-col justify-between space-y-4 group">
+          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-ice/50 transition-all flex flex-col justify-between space-y-4 group">
             <div class="space-y-2.5">
               <div class="flex items-center justify-between">
                 <div class="w-9 h-9 rounded-lg bg-obsidian border border-ice/40 flex items-center justify-center text-iceLight group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(56,189,248,0.2)]">
@@ -947,16 +970,17 @@
                 </span>
               </div>
               <span class="text-xs text-slate-400 block font-sans">Official Website</span>
-              <p class="text-white font-medium text-xs tracking-wide group-hover:text-iceLight transition-colors truncate" title="sites.google.com/view/harshapilli/home">
-                sites.google.com/view/harshapilli
+              <p class="text-white font-medium text-[11.5px] leading-snug tracking-normal group-hover:text-iceLight transition-colors break-all">
+                sites.google.com/view/lalith-sriharsha
               </p>
             </div>
-            <a href="https://sites.google.com/view/harshapilli/home" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2 px-3 rounded-lg text-xs font-semibold bg-ice/15 text-iceLight border border-ice/40 hover:bg-ice hover:text-obsidian transition-all shadow-[0_0_10px_rgba(56,189,248,0.2)] flex items-center justify-center space-x-1.5 font-sans">
+            <a href="https://sites.google.com/view/lalith-sriharsha/home" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2 px-3 rounded-lg text-xs font-semibold bg-ice/15 text-iceLight border border-ice/40 hover:bg-ice hover:text-obsidian transition-all shadow-[0_0_10px_rgba(56,189,248,0.2)] flex items-center justify-center space-x-1.5 font-sans">
               <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
               <span>Visit Website ↗</span>
             </a>
           </div>
         </div>
+
       </div>
     </section>
   </main>
@@ -1030,6 +1054,20 @@
       if (menu) {
         menu.classList.toggle('hidden');
       }
+    }
+
+    // Direct Website Code Downloader Function
+    function downloadWebsiteCode() {
+      const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
     // Initialize Lucide icons on DOM ready
