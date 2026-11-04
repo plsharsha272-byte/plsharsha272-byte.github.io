@@ -113,9 +113,11 @@
         <button onclick="switchTab('experience')" id="tab-experience" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-iceLight hover:bg-ice/20 hover:border-ice/50 hover:shadow-[0_0_14px_rgba(56,189,248,0.35)] hover:scale-105 border border-transparent">Experience</button>
         <!-- 3. Education: Full-Pill Gold Hover -->
         <button onclick="switchTab('education')" id="tab-education" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-gold hover:bg-gold/20 hover:border-gold/50 hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] hover:scale-105 border border-transparent">Education</button>
-        <!-- 4. Achievements: Full-Pill Ice Blue Hover -->
+        <!-- 4. Honors & Felicitations: Full-Pill Gold Hover -->
+        <button onclick="switchTab('honors')" id="tab-honors" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-gold hover:bg-gold/20 hover:border-gold/50 hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] hover:scale-105 border border-transparent">Honors &amp; Felicitations</button>
+        <!-- 5. Achievements: Full-Pill Ice Blue Hover -->
         <button onclick="switchTab('achievements')" id="tab-achievements" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-iceLight hover:bg-ice/20 hover:border-ice/50 hover:shadow-[0_0_14px_rgba(56,189,248,0.35)] hover:scale-105 border border-transparent">Achievements</button>
-        <!-- 5. Contact: Full-Pill Gold Hover -->
+        <!-- 6. Contact: Full-Pill Gold Hover -->
         <button onclick="switchTab('contact')" id="tab-contact" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-gold hover:bg-gold/20 hover:border-gold/50 hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] hover:scale-105 border border-transparent">Contact</button>
       </nav>
     </div>
@@ -125,6 +127,7 @@
       <button onclick="switchTabMobile('home')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-gold font-medium bg-gold/15 border border-gold/40">Home</button>
       <button onclick="switchTabMobile('experience')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-ice hover:bg-ice/15 hover:border hover:border-ice/30">Experience</button>
       <button onclick="switchTabMobile('education')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-gold hover:bg-gold/15 hover:border hover:border-gold/30">Education</button>
+      <button onclick="switchTabMobile('honors')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-gold hover:bg-gold/15 hover:border hover:border-gold/30">Honors &amp; Felicitations</button>
       <button onclick="switchTabMobile('achievements')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-ice hover:bg-ice/15 hover:border hover:border-ice/30">Achievements</button>
       <button onclick="switchTabMobile('contact')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-gold hover:bg-gold/15 hover:border hover:border-gold/30">Contact</button>
     </div>
@@ -335,10 +338,11 @@
       </div>
     </section>
 
-    <!-- ================= TAB 2: EXPERIENCE (LOCKED) ================= -->
+    <!-- ================= TAB 2: EXPERIENCE ================= -->
     <section id="content-experience" class="tab-content hidden space-y-8">
       <div class="border-b border-slate-800 pb-3">
         <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Professional Trajectory</h2>
+        <p class="text-xs text-slate-400 mt-1 font-sans">Chronological operational trajectory and enterprise leadership milestones</p>
       </div>
 
       <div class="relative border-l border-slate-800 ml-4 pl-6 space-y-10">
@@ -372,6 +376,34 @@
                 <li>Architected strict compliance documentation and audit registries, proactively resolving complex employee operational requests with zero operational lag.</li>
                 <li>Conferred the distinguished <strong>Service Excellence Award</strong> by Shri Murali Mohan Garu (presented via Shri P. V. Narasimha Rao Memorial Charitable Trust) in commendation of outstanding strategic governance as Facility Manager.</li>
               </ul>
+            </div>
+
+            <!-- Felicitation Photo Thumbnail Preview & Navigation -->
+            <div class="pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div class="flex items-center gap-3 cursor-pointer group/img" onclick="openFullscreenModal('https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w1600')">
+                <div class="w-14 h-14 rounded-lg overflow-hidden border border-gold/50 shadow-[0_0_10px_rgba(212,175,55,0.25)] flex-shrink-0 group-hover/img:scale-105 transition-transform">
+                  <img 
+                    src="https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w1000" 
+                    alt="Service Excellence Felicitation" 
+                    class="w-full h-full object-cover object-top"
+                    referrerpolicy="no-referrer"
+                    onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt';"
+                  />
+                </div>
+                <div>
+                  <p class="text-white font-semibold text-xs group-hover/img:text-gold transition-colors">Felicitation Ceremony Photo</p>
+                  <p class="text-[10px] text-goldLight flex items-center gap-1">
+                    <i data-lucide="maximize-2" class="w-3 h-3"></i> Tap to view full screen
+                  </p>
+                </div>
+              </div>
+
+              <!-- Direct Navigation Button to Honors Tab: Service Excellence Felicitation -->
+              <button onclick="navigateToHonorsItem('honors-facility-award')" class="w-full sm:w-auto px-4 py-2 rounded-xl text-xs font-semibold bg-gold/15 text-gold border border-gold/40 hover:bg-gold hover:text-obsidian hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
+                <i data-lucide="award" class="w-4 h-4 text-gold group-hover:text-obsidian transition-colors"></i>
+                <span>View Service Excellence Felicitation</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </button>
             </div>
           </div>
         </div>
@@ -512,6 +544,34 @@
             <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
               Advanced postgraduate program specializing in computational architectures, deep neural networks, natural language processing, and statistical machine learning. Selected as Class Representative during M.Sc. tenure in recognition of proven team governance, communication, and departmental leadership. Successfully formulated master's research into an Artificial Intelligence and NLP publication.
             </p>
+
+            <!-- District 1st Prize Photo Thumbnail Preview & Navigation Button -->
+            <div class="pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div class="flex items-center gap-3 cursor-pointer group/img" onclick="openFullscreenModal('https://drive.google.com/thumbnail?id=1EkOcKxnHj57J2JuMu8ZZY3QVH-MqXu92&sz=w1600')">
+                <div class="w-14 h-14 rounded-lg overflow-hidden border border-ice/50 shadow-[0_0_10px_rgba(56,189,248,0.25)] flex-shrink-0 group-hover/img:scale-105 transition-transform bg-black/60">
+                  <img 
+                    src="https://drive.google.com/thumbnail?id=1EkOcKxnHj57J2JuMu8ZZY3QVH-MqXu92&sz=w1000" 
+                    alt="District 1st Prize Felicitation Preview" 
+                    class="w-full h-full object-cover object-center"
+                    referrerpolicy="no-referrer"
+                    onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1EkOcKxnHj57J2JuMu8ZZY3QVH-MqXu92';"
+                  />
+                </div>
+                <div>
+                  <p class="text-white font-semibold text-xs group-hover/img:text-iceLight transition-colors">District 1st Prize Award Ceremony</p>
+                  <p class="text-[10px] text-iceLight flex items-center gap-1">
+                    <i data-lucide="maximize-2" class="w-3 h-3"></i> Tap to view full screen
+                  </p>
+                </div>
+              </div>
+
+              <!-- Direct Navigation Button to Honors Tab: District 1st Prize Commendation -->
+              <button onclick="navigateToHonorsItem('honors-district-prize')" class="w-full sm:w-auto px-4 py-2 rounded-xl text-xs font-semibold bg-ice/15 text-iceLight border border-ice/40 hover:bg-ice hover:text-obsidian hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
+                <i data-lucide="trophy" class="w-4 h-4 text-iceLight group-hover:text-obsidian transition-colors"></i>
+                <span>View District 1st Prize Commendation</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -583,12 +643,12 @@
                 </div>
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-[13px] text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-medium font-sans">GPA: 8.5</span>
+                <span class="text-[13px] text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-medium font-sans">GPA: 8.5 (Class 2nd Rank)</span>
                 <span class="text-[13px] text-slate-400 bg-deepNavy px-2.5 py-0.5 rounded-full border border-slate-700/60 font-sans">2017</span>
               </div>
             </div>
             <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Foundational schooling completed with a high-standing 8.5 GPA, developing core competency in theoretical sciences, mathematics, and analytical reasoning.
+              Foundational schooling completed with a high-standing 8.5 GPA, securing <strong>Class 2nd Rank</strong> in the final board examinations and proudly serving as <strong>Class Representative (CR)</strong>, developing early student leadership, discipline, theoretical sciences, and analytical reasoning.
             </p>
           </div>
         </div>
@@ -650,6 +710,138 @@
               <span>Bioinformatics / Machine Learning</span>
               <span class="text-iceLight">Applied Data Science</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB: HONORS & FELICITATIONS ================= -->
+    <section id="content-honors" class="tab-content hidden space-y-8">
+      <div class="border-b border-slate-800 pb-3">
+        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Honors &amp; Felicitations</h2>
+        <p class="text-xs text-slate-400 mt-1 font-sans">Prestigious state felicitations, executive leadership commendations, and ceremonial recognitions</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- 1. Service Excellence Award (Gold) with Full-Width Ceremonial Photo -->
+        <div id="honors-facility-award" class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-gold/40 transition-all duration-500 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 rounded border border-gold/30 font-sans">
+                Service Excellence
+              </span>
+              <i data-lucide="award" class="w-4 h-4 text-gold"></i>
+            </div>
+            <h3 class="heading-font text-white text-[18px] font-bold text-center">Service Excellence Award — Facility Manager</h3>
+            
+            <!-- Full-Display High-Resolution Photo Container -->
+            <div class="relative w-full rounded-xl overflow-hidden border border-gold/40 bg-black/60 shadow-[0_0_20px_rgba(212,175,55,0.2)] group cursor-pointer" onclick="openFullscreenModal('https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w1600')">
+              <div class="w-full h-64 sm:h-80 md:h-96 flex items-center justify-center bg-black/80">
+                <img 
+                  id="honors-award-photo"
+                  src="https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w1600" 
+                  alt="Service Excellence Award Felicitation" 
+                  class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt';"
+                />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-3.5">
+                <span class="text-xs text-goldLight font-medium flex items-center gap-1.5 bg-black/60 px-3 py-1.5 rounded-full border border-gold/40 backdrop-blur-sm">
+                  <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-gold"></i> Tap to view full screen
+                </span>
+              </div>
+            </div>
+
+            <!-- Complete Detailed Official Felicitation Citation -->
+            <div class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3 space-y-3 font-times">
+              <p>
+                The Annual Felicitation Ceremony was held on June 2026 at the prestigious Ravindra Bharathi, Hyderabad. Organized by the <strong>Shri P. V. Narasimha Rao Memorial Charitable Trust</strong>, the event brought together distinguished dignitaries and professionals to recognize excellence, dedication, and outstanding service across various fields.
+              </p>
+              <p>
+                Receiving the <strong>Service Excellence Award</strong> at the prestigious Annual Felicitation Ceremony held on June 2026 at Ravindra Bharathi Stadium, Gajwel, Hyderabad, is one of the most significant milestones in my professional journey. The ceremony was organized by the Shri P. V. Narasimha Rao Memorial Charitable Trust, a renowned organization that celebrates excellence, dedication, and meaningful contributions across various fields of public service, education, and professional leadership.
+              </p>
+              <p>
+                After successfully completing my Master of Science (M.Sc.) in Computer Science, I had the privilege of representing <strong>Fission Labs Pvt. Ltd.</strong>, Jubilee Hills, Hyderabad, as a Facility Manager for this prestigious event. Being entrusted with responsibilities at such a high-profile ceremony reflected the confidence my organization placed in my professionalism, commitment, and the ability to manage large-scale operations with precision.
+              </p>
+              <p>
+                The event was graced by the Hon'ble Governor of Telangana – <strong>"Shri Shiv Pratap Shukla Garu"</strong> and attended by <strong>"Shri Murali Mohan Garu"</strong>, one of Telugu cinema's most respected personalities, a distinguished producer, philanthropist, and former Member of Parliament. Their presence elevated the significance of the occasion, making it a platform that recognized individuals who demonstrated exceptional dedication and excellence in their respective responsibilities.
+              </p>
+              <p>
+                As the Facility Manager representing Fission Labs Pvt. Ltd., I was responsible for ensuring the seamless execution of venue operations and end-to-end facility management throughout the event. My responsibilities included coordinating operational activities, managing guest movement, overseeing hospitality support, supervising logistics, maintaining venue readiness, and ensuring that every aspect of the ceremony was executed with the highest standards of professionalism. Every responsibility required careful planning, effective coordination, quick decision-making, and the ability to perform efficiently under pressure.
+              </p>
+              <p>
+                Managing an event of this magnitude demanded attention to detail, discipline, teamwork, and a proactive approach to solving challenges before they could affect the event. I successfully ensured that all operational services were delivered smoothly, creating a well-organized environment for dignitaries, guests, organizers, and participants. My contribution played an important role in the successful execution of the ceremony without operational disruptions.
+              </p>
+              <p>
+                In appreciation of my dedication, reliability, and exceptional service, I was presented with the <strong>Service Excellence Award</strong> by the Shri P. V. Narasimha Rao Memorial Charitable Trust. Receiving this honour on the stage of Ravindra Bharathi, in the presence of such eminent personalities, was an unforgettable moment of pride and a recognition of my commitment to delivering excellence in every responsibility entrusted to me.
+              </p>
+              <p>
+                This achievement reflects more than an award—it represents my professional values of leadership, accountability, operational excellence, teamwork, and service-oriented commitment. It stands as a testament to my ability to represent my organization with integrity, manage high-responsibility assignments with confidence, and consistently deliver quality outcomes in demanding professional environments. This recognition continues to inspire me to pursue higher standards of excellence and make a meaningful impact through dedication, discipline, and continuous growth.
+              </p>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans flex items-center justify-between">
+            <span>Awarded by Shri P.V. Narasimha Rao Memorial Trust</span>
+            <span class="text-gold font-medium">Ceremony Felicitation</span>
+          </div>
+        </div>
+
+        <!-- 2. District 1st Prize - Highway Safety Month (Ice Blue) with Full-Width Ceremonial Photo -->
+        <div id="honors-district-prize" class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-ice/40 transition-all duration-500 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-sans">
+                District 1st Prize
+              </span>
+              <i data-lucide="trophy" class="w-4 h-4 text-iceLight"></i>
+            </div>
+            <h3 class="heading-font text-white text-[18px] font-bold text-center">National Road Safety Awareness Program – 2025 (District 1st Prize)</h3>
+
+            <!-- Full-Display High-Resolution Photo Container -->
+            <div class="relative w-full rounded-xl overflow-hidden border border-ice/40 bg-black/60 shadow-[0_0_20px_rgba(56,189,248,0.2)] group cursor-pointer" onclick="openFullscreenModal('https://drive.google.com/thumbnail?id=1EkOcKxnHj57J2JuMu8ZZY3QVH-MqXu92&sz=w1600')">
+              <div class="w-full h-64 sm:h-80 md:h-96 flex items-center justify-center bg-black/80">
+                <img 
+                  id="honors-district-photo"
+                  src="https://drive.google.com/thumbnail?id=1EkOcKxnHj57J2JuMu8ZZY3QVH-MqXu92&sz=w1600" 
+                  alt="District 1st Prize Award Ceremony" 
+                  class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1EkOcKxnHj57J2JuMu8ZZY3QVH-MqXu92';"
+                />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-3.5">
+                <span class="text-xs text-iceLight font-medium flex items-center gap-1.5 bg-black/60 px-3 py-1.5 rounded-full border border-ice/40 backdrop-blur-sm">
+                  <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-iceLight"></i> Tap to view full screen
+                </span>
+              </div>
+            </div>
+
+            <!-- Complete Detailed Official Felicitation Citation -->
+            <div class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3 space-y-3 font-times">
+              <p>
+                One of the most prestigious milestones in my academic and personal journey was securing the <strong>East Godavari District First Prize</strong> in the Elocution Competition during the <strong>National Road Safety Awareness Program – 2025</strong>. This achievement was accomplished while I was pursuing my Master of Science (M.Sc.) in Computer Science, reflecting my commitment to excelling not only in academics but also in communication, leadership, and public engagement.
+              </p>
+              <p>
+                The National Road Safety Awareness Program – 2025 was organized as part of the National Road Safety Awareness Month from 16 January 2025 to 15 February 2025 across East Godavari District. The initiative aimed to educate and inspire citizens, particularly students and young leaders, to promote responsible road usage, traffic discipline, and awareness about road safety through impactful educational activities and public speaking competitions.
+              </p>
+              <p>
+                Representing my institution, I participated in the Elocution Competition with a speech focused on the importance of road safety, civic responsibility, and creating a culture of awareness among the public. My presentation was appreciated for its clarity of thought, confident delivery, meaningful content, and the ability to communicate an important social message with conviction. Competing among participants from across the district, I was honored with the East Godavari District First Prize, making this achievement a proud moment in my educational journey.
+              </p>
+              <p>
+                Receiving this prestigious recognition from <strong>Ms. Prasanthi, IAS, District Collector &amp; District Magistrate, East Godavari District</strong>, was an unforgettable honor and a defining moment of my M.Sc. journey. The award symbolizes my dedication to continuous learning, effective communication, and the confidence to present ideas that can inspire awareness and positive social change.
+              </p>
+              <p>
+                As an M.Sc. Computer Science student, I strongly believe that true education extends beyond technical knowledge. It also includes the ability to communicate ideas effectively, lead with confidence, and contribute meaningfully to society. This accomplishment reflects my passion for public speaking, my commitment to personal and professional growth, and my determination to combine academic excellence with leadership and social responsibility.
+              </p>
+              <p>
+                This recognition continues to motivate me to pursue excellence in every opportunity, strengthen my communication and presentation skills, and represent my institution and community with confidence, integrity, and a spirit of service.
+              </p>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans flex items-center justify-between">
+            <span>Presented by Ms. Prasanthi, IAS, District Collector &amp; DM</span>
+            <span class="text-iceLight">Ceremony Felicitation</span>
           </div>
         </div>
       </div>
@@ -999,11 +1191,28 @@
     </div>
   </footer>
 
+  <!-- FULLSCREEN RESPONSIVE IMAGE MODAL (ANY DEVICE) -->
+  <div id="fullscreen-modal" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md hidden flex-col items-center justify-center p-2 sm:p-4 transition-all duration-300" onclick="closeFullscreenModal()">
+    <button onclick="closeFullscreenModal()" class="absolute top-4 right-4 z-[101] text-white hover:text-gold bg-slate-900/80 hover:bg-slate-800 border border-gold/40 p-2.5 rounded-full shadow-2xl transition-all cursor-pointer" aria-label="Close Fullscreen View">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="relative w-full h-full max-w-7xl max-h-[92vh] flex items-center justify-center p-1" onclick="event.stopPropagation()">
+      <img 
+        id="fullscreen-modal-img" 
+        src="" 
+        alt="Full Screen View" 
+        class="max-w-full max-h-full object-contain rounded-xl shadow-[0_0_50px_rgba(212,175,55,0.35)] border border-gold/30"
+        referrerpolicy="no-referrer"
+      />
+    </div>
+  </div>
+
   <script>
     const tabThemeConfig = {
       'home': { activeText: 'text-gold', activeBg: 'bg-gold/20', activeBorder: 'border-gold/50', glow: 'shadow-[0_0_12px_rgba(212,175,55,0.3)]' },
       'experience': { activeText: 'text-iceLight', activeBg: 'bg-ice/20', activeBorder: 'border-ice/50', glow: 'shadow-[0_0_12px_rgba(56,189,248,0.3)]' },
       'education': { activeText: 'text-gold', activeBg: 'bg-gold/20', activeBorder: 'border-gold/50', glow: 'shadow-[0_0_12px_rgba(212,175,55,0.3)]' },
+      'honors': { activeText: 'text-gold', activeBg: 'bg-gold/20', activeBorder: 'border-gold/50', glow: 'shadow-[0_0_12px_rgba(212,175,55,0.3)]' },
       'achievements': { activeText: 'text-iceLight', activeBg: 'bg-ice/20', activeBorder: 'border-ice/50', glow: 'shadow-[0_0_12px_rgba(56,189,248,0.3)]' },
       'contact': { activeText: 'text-gold', activeBg: 'bg-gold/20', activeBorder: 'border-gold/50', glow: 'shadow-[0_0_12px_rgba(212,175,55,0.3)]' }
     };
@@ -1055,6 +1264,49 @@
         menu.classList.toggle('hidden');
       }
     }
+
+    // Direct Navigation to specific items inside Honors & Felicitations with glow highlight
+    function navigateToHonorsItem(targetElementId) {
+      switchTab('honors');
+      setTimeout(() => {
+        const targetElement = document.getElementById(targetElementId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetElement.classList.add('ring-2', 'ring-gold', 'shadow-[0_0_25px_rgba(212,175,55,0.6)]', 'scale-[1.02]');
+          setTimeout(() => {
+            targetElement.classList.remove('ring-2', 'ring-gold', 'shadow-[0_0_25px_rgba(212,175,55,0.6)]', 'scale-[1.02]');
+          }, 2200);
+        }
+      }, 150);
+    }
+
+    // Responsive Edge-to-Edge Fullscreen Image Modal Functions
+    function openFullscreenModal(imgSrc) {
+      const modal = document.getElementById('fullscreen-modal');
+      const modalImg = document.getElementById('fullscreen-modal-img');
+      if (modal && modalImg) {
+        modalImg.src = imgSrc;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeFullscreenModal() {
+      const modal = document.getElementById('fullscreen-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeFullscreenModal();
+      }
+    });
 
     // Direct Website Code Downloader Function
     function downloadWebsiteCode() {
