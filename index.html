@@ -8,6 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind Configuration for Luxury Palette -->
   <script>
     if (typeof tailwind !== 'undefined') {
       tailwind.config = {
@@ -66,7 +67,6 @@
       text-align: justify;
       text-justify: inter-word;
     }
-    /* Luxury scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -84,13 +84,18 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-gold selection:text-obsidian antialiased bg-obsidian text-silver">
 
-  <!-- TOP HEADER & SEPARATE NAVIGATION DOCK -->
+  <!-- TOP HEADER & NAVIGATION DOCK -->
   <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-slate-800/80">
-    <!-- Row 1: Distinct Brand Header -->
     <div class="max-w-6xl w-full mx-auto px-4 py-3 flex items-center justify-between border-b border-slate-800/50">
       <div class="flex items-center space-x-2.5">
-        <div class="w-8 h-8 rounded-full border border-gold/60 flex items-center justify-center bg-gold/10 shadow-[0_0_10px_rgba(212,175,55,0.2)]">
-          <span class="heading-font text-gold font-bold text-[11px] tracking-wider">PLS</span>
+        <div class="w-[27px] h-[27px] rounded-full border border-gold/70 p-[1px] flex items-center justify-center bg-gold/10 shadow-[0_0_8px_rgba(212,175,55,0.25)] flex-shrink-0 overflow-hidden">
+          <img 
+            src="https://drive.google.com/thumbnail?id=1mEdUSByBVsTMA3iMIloY9Elu8KNcc00J&sz=w200" 
+            alt="LA Micro Logo" 
+            class="w-full h-full object-cover rounded-full"
+            referrerpolicy="no-referrer"
+            onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1mEdUSByBVsTMA3iMIloY9Elu8KNcc00J';"
+          />
         </div>
         <div class="flex flex-col">
           <span class="heading-font text-white font-bold tracking-wider text-sm leading-tight">P. L. Sriharsha</span>
@@ -98,46 +103,38 @@
         </div>
       </div>
 
-      <!-- Mobile Menu Toggle Button -->
       <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 text-silver hover:text-gold focus:outline-none" aria-label="Toggle Navigation">
         <i data-lucide="menu" class="w-5 h-5"></i>
       </button>
     </div>
 
-    <!-- Row 2: Separate Sub-Bar with Right-Aligned Options Bar -->
     <div class="max-w-6xl w-full mx-auto px-4 py-2 hidden md:flex justify-end items-center">
       <nav class="flex items-center space-x-1.5 bg-deepNavy/90 px-2 py-1 rounded-full border border-slate-800 shadow-md">
-        <!-- 1. Home: Gold Active & Full-Pill Gold Hover -->
         <button onclick="switchTab('home')" id="tab-home" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-gold bg-gold/20 border border-gold/50 shadow-[0_0_12px_rgba(212,175,55,0.3)] hover:text-gold hover:bg-gold/20 hover:border-gold/50 hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] hover:scale-105">Home</button>
-        <!-- 2. Experience: Full-Pill Ice Blue Hover -->
         <button onclick="switchTab('experience')" id="tab-experience" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-iceLight hover:bg-ice/20 hover:border-ice/50 hover:shadow-[0_0_14px_rgba(56,189,248,0.35)] hover:scale-105 border border-transparent">Experience</button>
-        <!-- 3. Education: Full-Pill Gold Hover -->
         <button onclick="switchTab('education')" id="tab-education" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-gold hover:bg-gold/20 hover:border-gold/50 hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] hover:scale-105 border border-transparent">Education</button>
-        <!-- 4. Achievements: Full-Pill Ice Blue Hover -->
-        <button onclick="switchTab('achievements')" id="tab-achievements" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-iceLight hover:bg-ice/20 hover:border-ice/50 hover:shadow-[0_0_14px_rgba(56,189,248,0.35)] hover:scale-105 border border-transparent">Achievements</button>
-        <!-- 5. Contact: Full-Pill Gold Hover -->
+        <button onclick="switchTab('achievements')" id="tab-achievements" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-iceLight hover:bg-ice/20 hover:border-ice/50 hover:shadow-[0_0_14px_rgba(56,189,248,0.35)] hover:scale-105 border border-transparent">Honors &amp; Felicitations</button>
+        <button onclick="switchTab('certifications')" id="tab-certifications" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-gold hover:bg-gold/20 hover:border-gold/50 hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] hover:scale-105 border border-transparent">Achievements</button>
         <button onclick="switchTab('contact')" id="tab-contact" class="nav-btn px-3.5 py-1.5 rounded-full text-[15px] italic font-medium transition-all duration-300 text-silver hover:text-gold hover:bg-gold/20 hover:border-gold/50 hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] hover:scale-105 border border-transparent">Contact</button>
       </nav>
     </div>
 
-    <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="hidden md:hidden px-4 py-3 space-y-1.5 bg-obsidian border-t border-slate-800 shadow-2xl">
       <button onclick="switchTabMobile('home')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-gold font-medium bg-gold/15 border border-gold/40">Home</button>
       <button onclick="switchTabMobile('experience')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-ice hover:bg-ice/15 hover:border hover:border-ice/30">Experience</button>
       <button onclick="switchTabMobile('education')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-gold hover:bg-gold/15 hover:border hover:border-gold/30">Education</button>
-      <button onclick="switchTabMobile('achievements')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-ice hover:bg-ice/15 hover:border hover:border-ice/30">Achievements</button>
+      <button onclick="switchTabMobile('achievements')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-ice hover:bg-ice/15 hover:border hover:border-ice/30">Honors &amp; Felicitations</button>
+      <button onclick="switchTabMobile('certifications')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-gold hover:bg-gold/15 hover:border hover:border-gold/30">Achievements</button>
       <button onclick="switchTabMobile('contact')" class="block w-full text-left px-3 py-2 rounded-xl text-[15px] italic text-silver hover:text-gold hover:bg-gold/15 hover:border hover:border-gold/30">Contact</button>
     </div>
   </header>
 
   <!-- MAIN VIEWPORT -->
   <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
-    
-    <!-- TAB 1: HOME -->
+
+    <!-- TAB: HOME -->
     <section id="content-home" class="tab-content block space-y-10">
-      <!-- HERO SECTION WITH OPTION 1 PORTRAIT -->
       <div class="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-8 pt-2">
-        <!-- Hero Text Content -->
         <div class="flex-1 space-y-4 text-center lg:text-left">
           <h1 class="heading-font text-4xl sm:text-5xl lg:text-[54px] font-bold text-white tracking-wide leading-tight">
             Pilli Lalith Sriharsha
@@ -145,19 +142,14 @@
           <p class="text-gold font-semibold tracking-wide text-[16px] md:text-[18px]">
             | Facility Manager | Admin &amp; Customer Support Executive | Quality Analyst (ITV) &amp; Payroll Processor |
           </p>
-
           <p class="justified-text text-slate-300 leading-relaxed text-sm md:text-base pt-2">
             Results-driven Operations, Quality Assurance, and Administrative Strategist with an established track record spanning complex payroll processing, stringent Income Tax Verification (ITV), comprehensive facility administration, and high-impact client engagement. Highly adept at orchestrating high-volume operational workflows, institutional reporting, rigorous data validation, and multi-tier vendor governance, consistently upholding zero-error accuracy, compliance integrity, and process optimization. Anchored by an advanced academic foundation with an M.Sc. in Computer Science and published research in applied artificial intelligence, I leverage technical agility across modern tooling alongside recognized, award-winning leadership to resolve mission-critical bottlenecks, elevate service excellence, and deliver sustainable operational value.
           </p>
         </div>
 
-        <!-- Option 1: Executive Portrait Frame with Gold Ambient Glow -->
         <div class="flex-shrink-0 flex flex-col items-center">
           <div class="relative group cursor-pointer">
-            <!-- Ambient Glow Effect -->
             <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-gold/40 via-amber-500/20 to-ice/30 blur-lg opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"></div>
-            
-            <!-- Portrait Container with Frame Hover Effect -->
             <div class="relative w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-gold/70 bg-deepNavy shadow-[0_0_35px_rgba(212,175,55,0.25)] group-hover:border-gold group-hover:shadow-[0_0_45px_rgba(212,175,55,0.45)] group-hover:-translate-y-1 transition-all duration-500 flex flex-col items-center justify-center">
               <img 
                 id="executive-photo"
@@ -169,823 +161,535 @@
               />
             </div>
           </div>
+          <span class="text-[11px] font-sans text-slate-400 tracking-wider uppercase mt-3">Executive Portrait</span>
         </div>
       </div>
 
-      <!-- DIRECT INFORMATION SECTION -->
-      <div class="space-y-5">
-        <div class="flex justify-between items-baseline border-b border-slate-800 pb-2">
-          <h2 class="heading-font text-xl md:text-2xl text-white font-semibold tracking-wide">
-            Direct Information
-          </h2>
-          <span class="text-xs text-slate-500 font-sans tracking-wider">Primary Contact Channels</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 pt-4">
+        <div class="bg-cardBg/90 border border-gold/40 p-4 rounded-xl shadow-lg hover:border-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.25)] transition-all">
+          <span class="text-[11px] font-bold tracking-widest text-gold uppercase block mb-1">Direct Dial</span>
+          <p class="text-white text-xs font-semibold">+91 94934 71854</p>
         </div>
-
-        <!-- 5 TOUCHPOINT CARDS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          <!-- 1. Phone Card (Gold) -->
-          <div class="bg-cardBg p-4 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-gold/40 transition-colors">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="w-7 h-7 rounded-lg bg-deepNavy border border-slate-700/60 flex items-center justify-center text-gold">
-                  <i data-lucide="phone" class="w-3.5 h-3.5"></i>
-                </div>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2 py-0.5 rounded border border-gold/30">
-                  DIRECT LINE
-                </span>
-              </div>
-              <h3 class="text-white font-semibold text-sm">Primary Phone</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Native Mobile Dialer</p>
-            </div>
-            <div class="mt-4 pt-2.5 border-t border-slate-800/80">
-              <a href="tel:+919493471854" class="text-white hover:text-gold font-medium text-xs select-all transition-colors">
-                +91 94934 71854
-              </a>
-            </div>
-          </div>
-
-          <!-- 2. Direct Email Card (Ice Blue) -->
-          <div class="bg-cardBg p-4 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-ice/40 transition-colors">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="w-7 h-7 rounded-lg bg-deepNavy border border-slate-700/60 flex items-center justify-center text-iceLight">
-                  <i data-lucide="mail" class="w-3.5 h-3.5"></i>
-                </div>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2 py-0.5 rounded border border-ice/30">
-                  INQUIRY
-                </span>
-              </div>
-              <h3 class="text-white font-semibold text-sm">Direct Email</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Verified Corporate Inbox</p>
-            </div>
-            <div class="mt-4 pt-2.5 border-t border-slate-800/80">
-              <a href="mailto:lalithsriharsha272@gmail.com" class="text-iceLight hover:underline text-xs flex items-center justify-between">
-                <span class="truncate">lalithsriharsha272@gmail.com</span>
-                <span class="ml-1">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- 3. LinkedIn Card (Gold) -->
-          <div class="bg-cardBg p-4 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-gold/40 transition-colors">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="w-7 h-7 rounded-lg bg-deepNavy border border-slate-700/60 flex items-center justify-center text-gold">
-                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.68 1.68 0 1 0 0-3.36 1.68 1.68 0 0 0 0 3.36M7.85 18.5V10.13H5.06v8.37h2.79z"/>
-                  </svg>
-                </div>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2 py-0.5 rounded border border-gold/30">
-                  NETWORK
-                </span>
-              </div>
-              <h3 class="text-white font-semibold text-sm">Official LinkedIn</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Executive Profile</p>
-            </div>
-            <div class="mt-4 pt-2.5 border-t border-slate-800/80">
-              <a href="https://www.linkedin.com/in/pilli-lalith-sriharsha-5a9780305?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline text-xs flex items-center justify-between">
-                <span>Connect</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- 4. Resume Card (Ice Blue) -->
-          <div class="bg-cardBg p-4 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-ice/40 transition-colors">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="w-7 h-7 rounded-lg bg-deepNavy border border-slate-700/60 flex items-center justify-center text-iceLight">
-                  <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                </div>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2 py-0.5 rounded border border-ice/30">
-                  OFFICIAL CV
-                </span>
-              </div>
-              <h3 class="text-white font-semibold text-sm">Resume</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Curriculum Vitae</p>
-            </div>
-            <div class="mt-4 pt-2.5 border-t border-slate-800/80">
-              <a href="https://drive.google.com/file/d/15Mh-o9lNWsKN7LArNScO2cLQ7bHTKyGD/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-iceLight hover:underline text-xs flex items-center justify-between">
-                <span>Open</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- 5. Website Card (Gold) -->
-          <div class="bg-cardBg p-4 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-gold/40 transition-colors">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="w-7 h-7 rounded-lg bg-deepNavy border border-slate-700/60 flex items-center justify-center text-gold">
-                  <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-                </div>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2 py-0.5 rounded border border-gold/30">
-                  WEB HUB
-                </span>
-              </div>
-              <h3 class="text-white font-semibold text-sm">Official Website</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Google Sites Hub</p>
-            </div>
-            <div class="mt-4 pt-2.5 border-t border-slate-800/80">
-              <a href="https://sites.google.com/view/lalith-sriharsha/home" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline text-xs flex items-center justify-between">
-                <span>Visit</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
+        <div class="bg-cardBg/90 border border-ice/40 p-4 rounded-xl shadow-lg hover:border-ice hover:shadow-[0_0_15px_rgba(56,189,248,0.25)] transition-all">
+          <span class="text-[11px] font-bold tracking-widest text-ice uppercase block mb-1">Confidential Mail</span>
+          <p class="text-white text-xs font-semibold truncate" title="lalithsriharsha272@gmail.com">lalithsriharsha272@gmail.com</p>
+        </div>
+        <div class="bg-cardBg/90 border border-gold/40 p-4 rounded-xl shadow-lg hover:border-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.25)] transition-all">
+          <span class="text-[11px] font-bold tracking-widest text-gold uppercase block mb-1">Operational Base</span>
+          <p class="text-white text-xs font-semibold">Kovvur / Rajahmundry, AP</p>
+        </div>
+        <div class="bg-cardBg/90 border border-ice/40 p-4 rounded-xl shadow-lg hover:border-ice hover:shadow-[0_0_15px_rgba(56,189,248,0.25)] transition-all">
+          <span class="text-[11px] font-bold tracking-widest text-ice uppercase block mb-1">Professional Network</span>
+          <p class="text-white text-xs font-semibold">LinkedIn Profile</p>
+        </div>
+        <div class="bg-cardBg/90 border border-gold/40 p-4 rounded-xl shadow-lg hover:border-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.25)] transition-all">
+          <span class="text-[11px] font-bold tracking-widest text-gold uppercase block mb-1">Live Portfolio</span>
+          <p class="text-white text-xs font-semibold">Google Sites Verified</p>
         </div>
       </div>
 
-      <!-- CORE STRATEGIC PILLARS -->
       <div class="space-y-4 pt-2">
-        <h3 class="heading-font text-lg text-white font-semibold tracking-wide border-b border-slate-800 pb-2">
-          Core Strategic Pillars
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-cardBg/60 p-5 rounded-xl border border-slate-800/80 space-y-2 hover:border-gold/40 transition-colors">
-            <div class="text-gold flex items-center space-x-2">
-              <i data-lucide="building" class="w-5 h-5"></i>
-              <h4 class="heading-font text-white font-semibold text-[17.5px]">Facility Management</h4>
-            </div>
-            <p class="justified-text text-[13.5px] text-slate-300 leading-relaxed">
-              Spearheading end-to-end site operations, space optimization, and statutory safety compliance across multi-tenant corporate workspaces. Driving vendor lifecycle governance, SLA monitoring, and lease contract negotiations to ensure operational continuity and cost-effective facilities administration.
+        <h2 class="heading-font text-2xl text-white font-semibold">Strategic Competencies &amp; Pillars</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="bg-cardBg/80 border border-slate-800 rounded-2xl p-5 hover:border-gold/60 transition-all shadow-md">
+            <h3 class="heading-font text-gold text-lg font-bold mb-2">Operational Integrity &amp; ITV</h3>
+            <p class="justified-text text-xs leading-relaxed text-slate-300">
+              Expert in high-stakes Income Tax Verification, zero-error audit workflows, corporate payroll administration, and enterprise data migration pipelines.
             </p>
           </div>
-
-          <div class="bg-cardBg/60 p-5 rounded-xl border border-slate-800/80 space-y-2 hover:border-ice/40 transition-colors">
-            <div class="text-iceLight flex items-center space-x-2">
-              <i data-lucide="shield-check" class="w-5 h-5"></i>
-              <h4 class="heading-font text-white font-semibold text-[17.5px]">Payroll &amp; Quality Analysis</h4>
-            </div>
-            <p class="justified-text text-[13.5px] text-slate-300 leading-relaxed">
-              Executing high-precision end-to-end payroll runs, statutory compliance filings, and stringent Income Tax Verification (ITV) audits. Implementing structured quality benchmarks, automated error-detection routines, and reconciliation workflows to deliver consistent zero-defect accuracy.
+          <div class="bg-cardBg/80 border border-ice/60 transition-all shadow-md">
+            <h3 class="heading-font text-ice text-lg font-bold mb-2">Facility &amp; Institutional Governance</h3>
+            <p class="justified-text text-xs leading-relaxed text-slate-300">
+              Proven facility leadership commanding infrastructural readiness, vendor SLA oversight, cross-department financial reporting reconciliation, and executive service standards.
             </p>
           </div>
-
-          <div class="bg-cardBg/60 p-5 rounded-xl border border-slate-800/80 space-y-2 hover:border-gold/40 transition-colors">
-            <div class="text-gold flex items-center space-x-2">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
-              <h4 class="heading-font text-white font-semibold text-[17.5px]">Technical Architecture</h4>
-            </div>
-            <p class="justified-text text-[13.5px] text-slate-300 leading-relaxed">
-              Synthesizing rigorous computer science methodologies with modern tooling to design resilient data pipelines, administrative automations, and machine-learning prototypes. Architecting secure data-handling workflows and operational dashboards that resolve critical institutional bottlenecks.
+          <div class="bg-cardBg/80 border border-gold/60 transition-all shadow-md">
+            <h3 class="heading-font text-gold text-lg font-bold mb-2">Computational &amp; AI Acumen</h3>
+            <p class="justified-text text-xs leading-relaxed text-slate-300">
+              Published machine learning researcher with deep theoretical foundations in recurrent neural architectures (LSTM 96.94% accuracy) and bio-computational predictive models.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB 2: EXPERIENCE (LOCKED) ================= -->
+    <!-- TAB: EXPERIENCE -->
     <section id="content-experience" class="tab-content hidden space-y-8">
       <div class="border-b border-slate-800 pb-3">
-        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Professional Trajectory</h2>
+        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Professional Experience</h2>
+        <p class="text-xs text-slate-400 mt-1 font-sans">Four strategic engagements spanning corporate facility governance, customer support, and quality assurance</p>
       </div>
 
-      <div class="relative border-l border-slate-800 ml-4 pl-6 space-y-10">
-        <!-- 1. FISSION LABS (Position 1 in 4-3-2-1) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-gold border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-6 rounded-xl border border-slate-800 group-hover:border-gold/40 transition-colors space-y-4">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">Facility Manager</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-gold text-[15.5px] font-semibold tracking-wide">Fission Labs Pvt Ltd</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-gold/70 inline"></i> Hyderabad, Telangana
-                  </span>
-                </div>
-              </div>
-              <span class="text-[13px] text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/30 font-medium">Present</span>
-            </div>
-
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Orchestrating end-to-end corporate infrastructure, workspace asset management, and statutory facility administration across enterprise environments. Spearheading strategic vendor ecosystems, facility compliance roadmaps, occupational safety frameworks, and preventative maintenance workflows to ensure an uninterrupted, high-productivity operational landscape.
-            </p>
-
-            <div class="space-y-2 pt-1">
-              <h4 class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Key Responsibilities &amp; Highlights:</h4>
-              <ul class="text-[13px] text-slate-300 space-y-2 list-disc list-inside justified-text leading-relaxed">
-                <li>Directed end-to-end site facility operations and corporate administrative protocols, ensuring an agile, uninterrupted workplace ecosystem.</li>
-                <li>Governed multi-tier vendor partnerships, service level agreements (SLAs), maintenance frameworks, and infrastructural readiness across all workplace facilities.</li>
-                <li>Architected strict compliance documentation and audit registries, proactively resolving complex employee operational requests with zero operational lag.</li>
-                <li>Conferred the distinguished <strong>Service Excellence Award</strong> by Shri Murali Mohan Garu (presented via Shri P. V. Narasimha Rao Memorial Charitable Trust) in commendation of outstanding strategic governance as Facility Manager.</li>
-              </ul>
-            </div>
+      <!-- Experience Card 1: Fission Labs -->
+      <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-6 sm:p-7 shadow-xl hover:border-gold/80 transition-all space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-slate-800 pb-3 gap-1">
+          <div>
+            <h3 class="heading-font font-bold text-white text-[25px] leading-tight">Facility Manager</h3>
+            <p class="heading-font font-bold text-gold text-[15.5px] tracking-wide mt-0.5">Fission Labs Pvt Ltd</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider bg-gold/15 text-gold border border-gold/40">Present</span>
+            <p class="heading-font text-[13px] text-slate-400 mt-0.5">Hyderabad, Telangana</p>
           </div>
         </div>
-
-        <!-- 2. POWER JEEVI SOFTWARE SOLUTIONS (Position 2 in 4-3-2-1) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-ice border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-6 rounded-xl border border-slate-800 group-hover:border-ice/40 transition-colors space-y-4">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">Customer Support Executive</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-iceLight text-[15.5px] font-semibold tracking-wide">Power Jeevi Software Solutions</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-ice/70 inline"></i> Guntur, Andhra Pradesh
-                  </span>
-                </div>
+        <ul class="space-y-2 pt-1">
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-gold mt-1 font-bold">•</span>
+            <span>Directed end-to-end site facility operations and corporate administrative protocols, ensuring an agile, uninterrupted workplace ecosystem.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-gold mt-1 font-bold">•</span>
+            <span>Governed multi-tier vendor partnerships, service level agreements (SLAs), maintenance frameworks, and infrastructural readiness across all workplace facilities.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-gold mt-1 font-bold">•</span>
+            <span>Architected strict compliance documentation and audit registries, proactively resolving complex employee operational requests with zero operational lag.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-gold mt-1 font-bold">•</span>
+            <span>Conferred the distinguished <b>Service Excellence Award</b> by Shri Murali Mohan Garu (presented via Shri P. V. Narasimha Rao Memorial Charitable Trust) in commendation of outstanding strategic governance as Facility Manager.</span>
+          </li>
+        </ul>
+        <!-- Felicitation Photo Thumbnail & Full Screen Action -->
+        <div class="pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div 
+            onclick="openFullscreenImage('https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w2000', 'Service Excellence Award Felicitation with Shri Murali Mohan Garu')" 
+            class="group cursor-pointer flex items-center gap-3 p-2 rounded-xl bg-deepNavy/80 border border-gold/40 hover:border-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all">
+            <div class="relative w-14 h-14 rounded-lg overflow-hidden border border-gold/60 flex-shrink-0 bg-slate-900">
+              <img 
+                src="https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w400" 
+                alt="Service Excellence Award" 
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                referrerpolicy="no-referrer"
+                onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt';"
+              />
+              <div class="absolute inset-0 bg-obsidian/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="maximize-2" class="w-4 h-4 text-gold"></i>
               </div>
-              <span class="text-[13px] text-iceLight bg-ice/10 px-3 py-1 rounded-full border border-ice/30 font-medium">October 2025 – February 2026</span>
             </div>
-
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Administered high-throughput operational data integrity pipelines while managing tier-1 customer success and technical inquiry escalations. Spearheaded quality control audits across institutional digital records, systematically eliminating data discrepancies and driving rapid turnaround resolution benchmarks concurrent with final-semester postgraduate research.
-            </p>
-
-            <div class="space-y-2 pt-1">
-              <h4 class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Key Responsibilities &amp; Highlights:</h4>
-              <ul class="text-[13px] text-slate-300 space-y-2 list-disc list-inside justified-text leading-relaxed">
-                <li>Supervised high-throughput operational data pipelines, systematic digital archiving, and daily information lifecycle management.</li>
-                <li>Orchestrated client query triage and priority issue resolution, establishing rapid turnaround standards and superior user satisfaction metrics.</li>
-                <li>Enforced meticulous validation protocols, ensuring 100% data integrity and service quality while concurrently spearheading dual operational responsibilities.</li>
-                <li>Successfully balanced demanding operational commitments on a part-time basis concurrently with final-semester M.Sc. Computer Science postgraduate research.</li>
-              </ul>
+            <div>
+              <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-gold flex items-center gap-1">
+                <i data-lucide="image" class="w-3 h-3"></i> Felicitation Photo
+              </span>
+              <p class="text-xs font-semibold text-white group-hover:text-gold transition-colors">Tap to View Full Screen</p>
             </div>
           </div>
+
+          <button 
+            onclick="navigateToAward('service-excellence-card')" 
+            class="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gold/10 border border-gold/40 text-gold text-xs font-semibold hover:bg-gold/20 hover:border-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.35)] transition-all active:scale-95 cursor-pointer">
+            <i data-lucide="award" class="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform"></i>
+            <span>View Service Excellence Felicitation</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+          </button>
         </div>
+      </div>
 
-        <!-- 3. P.S.R. & V.N. DAV EDUCATIONAL INSTITUTIONS (Position 3 in 4-3-2-1) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-gold border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-6 rounded-xl border border-slate-800 group-hover:border-gold/40 transition-colors space-y-4">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">Administrative Executive</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-gold text-[15.5px] font-semibold tracking-wide">P.S.R. &amp; V.N. DAV Educational Institutions</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-gold/70 inline"></i> Rajahmundry, AP
-                  </span>
-                </div>
-              </div>
-              <span class="text-[13px] text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/30 font-medium">September 2024 – December 2024</span>
-            </div>
-
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Steered cross-departmental administrative operations, digital software system integration, and multi-tier institutional financial reporting. Supervised rigorous document verification, payroll authorization schedules, and regulatory compliance protocols to maintain 100% financial fidelity prior to institutional salary disallowance audits and disbursements.
-            </p>
-
-            <div class="space-y-2 pt-1">
-              <h4 class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Key Responsibilities &amp; Highlights:</h4>
-              <ul class="text-[13px] text-slate-300 space-y-2 list-disc list-inside justified-text leading-relaxed">
-                <li>Spearheaded core institutional software ecosystems, leading seamless deployment and operational onboarding for modern digitized administrative workflows.</li>
-                <li>Consolidated, cross-examined, and reconciled high-stakes operational and financial reports from Computer Operators and the Lead Financial Accountant.</li>
-                <li>Administered multi-layer verification of compensation structures, statutory records, and authorization schedules prior to monthly institutional salary disbursement.</li>
-              </ul>
-            </div>
+      <!-- Experience Card 2: Power Jeevi -->
+      <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-6 sm:p-7 shadow-xl hover:border-ice/80 transition-all space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-slate-800 pb-3 gap-1">
+          <div>
+            <h3 class="heading-font font-bold text-white text-[25px] leading-tight">Customer Support Executive</h3>
+            <p class="heading-font font-bold text-ice text-[15.5px] tracking-wide mt-0.5">Power Jeevi Software Solutions</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider bg-ice/15 text-ice border border-ice/40">Oct 2025 – Feb 2026</span>
+            <p class="heading-font text-[13px] text-slate-400 mt-0.5">Guntur, Andhra Pradesh</p>
           </div>
         </div>
+        <ul class="space-y-2 pt-1">
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Supervised high-throughput operational data pipelines, systematic digital archiving, and daily information lifecycle management.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Orchestrated client query triage and priority issue resolution, establishing rapid turnaround standards and superior user satisfaction metrics.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Enforced meticulous validation protocols, ensuring 100% data integrity and service quality while concurrently spearheading dual operational responsibilities.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Successfully balanced demanding operational commitments on a part-time basis concurrently with final-semester M.Sc. Computer Science postgraduate research.</span>
+          </li>
+        </ul>
+      </div>
 
-        <!-- 4. ASCENT STAFFING SOLUTIONS (Position 4 in 4-3-2-1) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-ice border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-6 rounded-xl border border-slate-800 group-hover:border-ice/40 transition-colors space-y-4">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">Quality Analyst - Income Tax Verification (ITV) | Payroll Processor</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-iceLight text-[15.5px] font-semibold tracking-wide">Ascent Staffing Solutions</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-ice/70 inline"></i> Rajahmundry, Andhra Pradesh
-                  </span>
-                </div>
-              </div>
-              <span class="text-[13px] text-iceLight bg-ice/10 px-3 py-1 rounded-full border border-ice/30 font-medium">May 2023 – March 2024</span>
-            </div>
-            
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Executed large-scale corporate payroll cycles, statutory compliance governance, and rigorous second-level Income Tax Verification (ITV) audits across diverse enterprise clients. Engineered seamless data conversions from Power Pay to Java-based platforms, establishing zero-variance accuracy, regulatory tax compliance, and exceptional client issue escalation resolution.
-            </p>
-
-            <div class="space-y-2 pt-1">
-              <h4 class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Key Responsibilities &amp; Highlights:</h4>
-              <ul class="text-[13px] text-slate-300 space-y-2 list-disc list-inside justified-text leading-relaxed">
-                <li>Calculated, validated, and disbursed high-volume corporate payroll runs, strictly maintaining statutory tax guidelines and SLA compliance.</li>
-                <li>Concurrently orchestrated end-to-end Payroll Operations and Income Tax Verifications (ITV), securing 100% on-time execution without compliance slippage.</li>
-                <li>Spearheaded enterprise data migration initiatives, successfully transmuting legacy Power Pay data architectures into Java-based processing pipelines.</li>
-                <li>Served as prime corporate escalation lead, resolving intricate tax compliance queries, client disputes, and critical payroll clarifications via multichannel engagement.</li>
-                <li>Commanded second-level Quality Assurance (QA) audits and definitive certification on institutional employee income tax files, enforcing zero-error benchmarks.</li>
-              </ul>
-            </div>
+      <!-- Experience Card 3: P.S.R. & V.N. DAV -->
+      <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-6 sm:p-7 shadow-xl hover:border-gold/80 transition-all space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-slate-800 pb-3 gap-1">
+          <div>
+            <h3 class="heading-font font-bold text-white text-[25px] leading-tight">Administrative Executive</h3>
+            <p class="heading-font font-bold text-gold text-[15.5px] tracking-wide mt-0.5">P.S.R. &amp; V.N. DAV Educational Institutions</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider bg-gold/15 text-gold border border-gold/40">Sep 2024 – Dec 2024</span>
+            <p class="heading-font text-[13px] text-slate-400 mt-0.5">Rajahmundry, Andhra Pradesh</p>
           </div>
         </div>
+        <ul class="space-y-2 pt-1">
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-gold mt-1 font-bold">•</span>
+            <span>Spearheaded core institutional software ecosystems, leading seamless deployment and operational onboarding for modern digitized administrative workflows.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-gold mt-1 font-bold">•</span>
+            <span>Consolidated, cross-examined, and reconciled high-stakes operational and financial reports from Computer Operators and the Lead Financial Accountant.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-gold mt-1 font-bold">•</span>
+            <span>Administered multi-layer verification of compensation structures, statutory records, and authorization schedules prior to monthly institutional salary disbursement.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Experience Card 4: Ascent Staffing Solutions -->
+      <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-6 sm:p-7 shadow-xl hover:border-ice/80 transition-all space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-slate-800 pb-3 gap-1">
+          <div>
+            <h3 class="heading-font font-bold text-white text-[25px] leading-tight">Quality Analyst - Income Tax Verification (ITV) | Payroll Processor</h3>
+            <p class="heading-font font-bold text-ice text-[15.5px] tracking-wide mt-0.5">Ascent Staffing Solutions</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider bg-ice/15 text-ice border border-ice/40">May 2023 – Mar 2024</span>
+            <p class="heading-font text-[13px] text-slate-400 mt-0.5">Rajahmundry, Andhra Pradesh</p>
+          </div>
+        </div>
+        <ul class="space-y-2 pt-1">
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Calculated, validated, and disbursed high-volume corporate payroll runs, strictly maintaining statutory tax guidelines and SLA compliance.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Concurrently orchestrated end-to-end Payroll Operations and Income Tax Verifications (ITV), securing 100% on-time execution without compliance slippage.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Spearheaded enterprise data migration initiatives, successfully transmuting legacy Power Pay data architectures into Java-based processing pipelines.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Served as prime corporate escalation lead, resolving intricate tax compliance queries, client disputes, and critical payroll clarifications via multichannel engagement.</span>
+          </li>
+          <li class="justified-text heading-font text-[13px] text-slate-300 flex items-start space-x-2">
+            <span class="text-ice mt-1 font-bold">•</span>
+            <span>Commanded second-level Quality Assurance (QA) audits and definitive certification on institutional employee income tax files, enforcing zero-error benchmarks.</span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- ================= TAB 3: EDUCATION ================= -->
+    <!-- TAB: EDUCATION -->
     <section id="content-education" class="tab-content hidden space-y-8">
       <div class="border-b border-slate-800 pb-3">
-        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Academic Foundation</h2>
-        <p class="text-xs text-slate-400 mt-1 font-sans">Formal Education Qualifications &amp; Research Milestones</p>
-      </div>
-
-      <!-- ACADEMIC MILESTONES (ALL 4 IN REVERSE CHRONOLOGICAL ORDER) -->
-      <div class="relative border-l border-slate-800 ml-4 pl-6 space-y-8">
-        <!-- 1. M.Sc. Computer Science (Gold Accent) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-gold border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-5 rounded-xl border border-slate-800 group-hover:border-gold/40 transition-colors space-y-3">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">Master of Science in Computer Science (M.Sc.)</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-gold text-[15.5px] font-semibold tracking-wide">Government College (Autonomous)</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-gold/70 inline"></i> Rajahmundry, Andhra Pradesh
-                  </span>
-                </div>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-[13px] text-gold bg-gold/10 px-2.5 py-0.5 rounded-full border border-gold/30 font-medium font-sans">CGPA: 7.92</span>
-                <span class="text-[13px] text-slate-400 bg-deepNavy px-2.5 py-0.5 rounded-full border border-slate-700/60 font-sans">Dec 2024 – Apr 2026</span>
-              </div>
-            </div>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Advanced postgraduate program specializing in computational architectures, deep neural networks, natural language processing, and statistical machine learning. Selected as Class Representative during M.Sc. tenure in recognition of proven team governance, communication, and departmental leadership. Successfully formulated master's research into an Artificial Intelligence and NLP publication.
-            </p>
-          </div>
-        </div>
-
-        <!-- 2. B.Sc. MSCS (Ice Blue Accent) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-ice border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-5 rounded-xl border border-slate-800 group-hover:border-ice/40 transition-colors space-y-3">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">B.Sc. Mathematics, Statistics &amp; Computer Science</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-iceLight text-[15.5px] font-semibold tracking-wide">ABN &amp; PRR College of Science</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-ice/70 inline"></i> Kovvur, Andhra Pradesh
-                  </span>
-                </div>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-[13px] text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-medium font-sans">CGPA: 7.4</span>
-                <span class="text-[13px] text-slate-400 bg-deepNavy px-2.5 py-0.5 rounded-full border border-slate-700/60 font-sans">Jun 2019 – Apr 2022</span>
-              </div>
-            </div>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Comprehensive undergraduate curriculum covering quantitative mathematics, probability modeling, relational database structures, operational research, and algorithmic software programming.
-            </p>
-          </div>
-        </div>
-
-        <!-- 3. Intermediate MPC (Gold Accent) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-gold border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-5 rounded-xl border border-slate-800 group-hover:border-gold/40 transition-colors space-y-3">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">Intermediate (MPC)</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-gold text-[15.5px] font-semibold tracking-wide">Sri Chaitanya Junior College</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-gold/70 inline"></i> Kovvur, Andhra Pradesh
-                  </span>
-                </div>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-[13px] text-gold bg-gold/10 px-2.5 py-0.5 rounded-full border border-gold/30 font-medium font-sans">CGPA: 7.76</span>
-                <span class="text-[13px] text-slate-400 bg-deepNavy px-2.5 py-0.5 rounded-full border border-slate-700/60 font-sans">Jun 2017 – Apr 2019</span>
-              </div>
-            </div>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Board of Intermediate Education specializing in Mathematics, Physics, and Chemistry (MPC), building robust quantitative discipline, computational logic, and problem-solving fundamentals.
-            </p>
-          </div>
-        </div>
-
-        <!-- 4. SSC (Ice Blue Accent) -->
-        <div class="relative group">
-          <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-ice border-4 border-obsidian"></div>
-          <div class="bg-cardBg p-5 rounded-xl border border-slate-800 group-hover:border-ice/40 transition-colors space-y-3">
-            <div class="flex flex-wrap justify-between items-start gap-2">
-              <div>
-                <h3 class="heading-font text-white text-[25px] font-bold leading-tight">Secondary School Certificate (SSC)</h3>
-                <div class="flex items-center space-x-2 mt-0.5">
-                  <p class="text-iceLight text-[15.5px] font-semibold tracking-wide">Sri Chaitanya Techno School</p>
-                  <span class="text-slate-500 text-xs">•</span>
-                  <span class="text-slate-400 text-[10px] heading-font flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-ice/70 inline"></i> Palakol, Andhra Pradesh
-                  </span>
-                </div>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-[13px] text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-medium font-sans">GPA: 8.5</span>
-                <span class="text-[13px] text-slate-400 bg-deepNavy px-2.5 py-0.5 rounded-full border border-slate-700/60 font-sans">2017</span>
-              </div>
-            </div>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed pt-2 border-t border-slate-800/80">
-              Foundational schooling completed with a high-standing 8.5 GPA, developing core competency in theoretical sciences, mathematics, and analytical reasoning.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- NESTED PROJECTS SECTION UNDER EDUCATION -->
-      <div class="pt-6 space-y-4">
-        <div class="border-b border-slate-800 pb-2">
-          <h3 class="heading-font text-2xl text-white font-semibold">Projects</h3>
-          <p class="text-xs text-slate-400 font-sans">Academic deep learning research and technical systems engineering</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <!-- Project 1: Published Research (Gold) -->
-          <div class="bg-cardBg p-6 rounded-xl border border-slate-800 hover:border-gold/40 transition-all flex flex-col justify-between space-y-4">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 rounded border border-gold/30 font-sans">
-                  Published Deep Learning Research
-                </span>
-                <span class="text-[13px] text-gold font-sans font-medium">96.94% Accuracy</span>
-              </div>
-              <h4 class="heading-font text-white text-[20px] font-bold leading-tight">LSTM-Based Deep Learning Approach for Sentiment Classification of Flipkart Reviews</h4>
-              <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2.5">
-                Engineered a TensorFlow/Keras Long Short-Term Memory (LSTM) recurrent neural network architecture for multi-class sentiment classification on a corpus of 21,904 consumer reviews. Implemented advanced NLP preprocessing including tokenization, stop-word reduction, and stemming to achieve 96.94% validation accuracy, successfully published in an AI &amp; NLP research forum.
-              </p>
-              <ul class="text-[13px] text-slate-300 space-y-1.5 list-disc list-inside justified-text leading-relaxed">
-                <li>End-to-end NLP data pipeline: tokenization, stop-word elimination, stemming, and dataset cleaning.</li>
-                <li>Hyperparameter-tuned recurrent network capturing long-range contextual dependencies.</li>
-                <li>Translated into a formal AI &amp; NLP academic research publication.</li>
-              </ul>
-            </div>
-            <div class="pt-2.5 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans flex justify-between">
-              <span>Deep Learning / NLP</span>
-              <span class="text-gold">M.Sc. Capstone Research</span>
-            </div>
-          </div>
-
-          <!-- Project 2: Gut Microbiome Analysis (Ice Blue) -->
-          <div class="bg-cardBg p-6 rounded-xl border border-slate-800 hover:border-ice/40 transition-all flex flex-col justify-between space-y-4">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2.5 py-0.5 rounded border border-ice/30 font-sans">
-                  Bio-Computational Data Science &amp; ML
-                </span>
-                <span class="text-[13px] text-iceLight font-sans font-medium">Predictive Modeling</span>
-              </div>
-              <h4 class="heading-font text-white text-[20px] font-bold leading-tight">Gut Microbiome Analysis &amp; Health State Prediction</h4>
-              <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2.5">
-                Engineered a bio-computational predictive machine learning pipeline analyzing complex gut microbiome taxonomic profiles and microbial abundance data. Applied high-dimensional feature selection, normalization, and supervised classification algorithms to identify discriminatory microbial biomarkers and predict host physiological health indicators with high classification fidelity.
-              </p>
-              <ul class="text-[13px] text-slate-300 space-y-1.5 list-disc list-inside justified-text leading-relaxed">
-                <li>Formulated high-dimensional feature extraction and dimensionality reduction on microbial relative abundance datasets.</li>
-                <li>Trained and cross-validated multi-class predictive ML models to map microbial dysbiosis against target health conditions.</li>
-                <li>Identified critical bacterial taxa and biomarker signatures driving automated health status predictions.</li>
-              </ul>
-            </div>
-            <div class="pt-2.5 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans flex justify-between">
-              <span>Bioinformatics / Machine Learning</span>
-              <span class="text-iceLight">Applied Data Science</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= TAB: ACHIEVEMENTS ================= -->
-    <section id="content-achievements" class="tab-content hidden space-y-8">
-      <div class="border-b border-slate-800 pb-3">
-        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Honors &amp; Recognized Achievements</h2>
-        <p class="text-xs text-slate-400 mt-1 font-sans">Verified awards, governmental commendations, and institutional leadership honors</p>
+        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Academic Foundation &amp; Research</h2>
+        <p class="text-xs text-slate-400 mt-1 font-sans">Four academic milestones and published scientific research in deep learning</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <!-- 1. Service Excellence Award (Gold) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-gold/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 rounded border border-gold/30 font-sans">
-                Service Excellence
-              </span>
-              <i data-lucide="award" class="w-4 h-4 text-gold"></i>
-            </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">Service Excellence Award — Facility Manager</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Conferred the esteemed Service Excellence Award by <strong>Shri Murali Mohan Garu</strong>, presented under the auspices of the <strong>Shri P. V. Narasimha Rao Memorial Charitable Trust</strong>, in commendation of outstanding operational governance, facility upkeep, and administrative execution.
-            </p>
+        <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-6 shadow-xl hover:border-gold transition-all space-y-2">
+          <div class="flex justify-between items-start">
+            <h3 class="heading-font text-white font-bold text-lg">Master of Science in Computer Science (M.Sc.)</h3>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold bg-gold/15 text-gold border border-gold/40 whitespace-nowrap">CGPA: 7.92</span>
           </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Awarded by Shri P.V. Narasimha Rao Memorial Trust
-          </div>
-        </div>
-
-        <!-- 2. District 1st Prize - Highway Safety Month (Ice Blue) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-ice/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-sans">
-                District 1st Prize
-              </span>
-              <i data-lucide="trophy" class="w-4 h-4 text-iceLight"></i>
-            </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">National Highway Safety Month 2025</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Secured the <strong>District 1st Prize</strong> during the prestigious National Highway Safety Month 2025 initiative; formally felicitated and received the award directly from <strong>P. Prashanthi, District Magistrate</strong>.
-            </p>
-          </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Presented by P. Prashanthi, District Magistrate
+          <p class="heading-font text-sm text-gold font-semibold">Government College (Autonomous), Rajahmundry</p>
+          <p class="text-xs text-slate-400 font-sans">Dec 2024 – Apr 2026 | Affiliated with Adikavi Nannaya University</p>
+          <p class="justified-text text-xs text-slate-300 pt-2 leading-relaxed">
+            Advanced postgraduate curriculum specializing in computational theory, artificial neural systems, and distributed information pipelines. Elected as Class Representative; authored published research in deep learning.
+          </p>
+          <!-- Direct Link to District 1st Prize Accolade -->
+          <div class="pt-3">
+            <button 
+              onclick="navigateToAward('district-1st-prize-card')" 
+              class="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-ice/10 border border-ice/40 text-ice text-xs font-semibold hover:bg-ice/20 hover:border-ice hover:shadow-[0_0_15px_rgba(56,189,248,0.35)] transition-all active:scale-95 cursor-pointer">
+              <i data-lucide="trophy" class="w-3.5 h-3.5 text-ice group-hover:scale-110 transition-transform"></i>
+              <span>View District 1st Prize Commendation</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+            </button>
           </div>
         </div>
 
-        <!-- 3. Government of AP D.A.P.C.U. Certificate (Gold) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-gold/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 rounded border border-gold/30 font-sans">
-                State Certificate
-              </span>
-              <i data-lucide="shield-check" class="w-4 h-4 text-gold"></i>
-            </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">Government of Andhra Pradesh (D.A.P.C.U.)</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Received an official Commendation Certificate from the <strong>Department of D.A.P.C.U., Government of Andhra Pradesh</strong>, honoring active public service, civic dedication, and institutional contributions.
-            </p>
+        <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-6 shadow-xl hover:border-ice transition-all space-y-2">
+          <div class="flex justify-between items-start">
+            <h3 class="heading-font text-white font-bold text-lg">B.Sc. Mathematics, Statistics &amp; Computer Science</h3>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold bg-ice/15 text-ice border border-ice/40 whitespace-nowrap">CGPA: 7.4</span>
           </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Dept. of D.A.P.C.U., Govt. of Andhra Pradesh
-          </div>
+          <p class="heading-font text-sm text-ice font-semibold">ABN &amp; PRR College of Science, Kovvur</p>
+          <p class="text-xs text-slate-400 font-sans">Jun 2019 – Apr 2022 | Affiliated with Adikavi Nannaya University</p>
+          <p class="justified-text text-xs text-slate-300 pt-2 leading-relaxed">
+            Undergraduate foundation focusing on rigorous quantitative modeling, mathematical statistics, numerical algorithms, and foundational computer architecture.
+          </p>
         </div>
 
-        <!-- 4. Wadhwani Foundation Mandal Level Recognition (Ice Blue) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-ice/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-sans">
-                Mandal Level Highest Score
-              </span>
-              <i data-lucide="star" class="w-4 h-4 text-iceLight"></i>
-            </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">Wadhwani Foundation &amp; APSSDC Recognition</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Awarded prestigious recognition under APSSDC for achieving the <strong>Highest Score at the Mandal Level</strong> in the professional Employability Skills Program conducted by the Wadhwani Foundation.
-            </p>
+        <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-6 shadow-xl hover:border-gold transition-all space-y-2">
+          <div class="flex justify-between items-start">
+            <h3 class="heading-font text-white font-bold text-lg">Intermediate (MPC: Maths, Physics, Chemistry)</h3>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold bg-gold/15 text-gold border border-gold/40 whitespace-nowrap">CGPA: 7.76</span>
           </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Wadhwani Foundation &amp; APSSDC Partnership
-          </div>
+          <p class="heading-font text-sm text-gold font-semibold">Sri Chaitanya Junior College, Kovvur</p>
+          <p class="text-xs text-slate-400 font-sans">Jun 2017 – Apr 2019 | Board of Intermediate Education, AP</p>
+          <p class="justified-text text-xs text-slate-300 pt-2 leading-relaxed">
+            Intensive higher secondary coursework in differential calculus, physics, and inorganic chemistry, cultivating disciplined analytical reasoning.
+          </p>
         </div>
 
-        <!-- 5. Silver Starred Certificate - 21st Century Skills (Gold) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-gold/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 rounded border border-gold/30 font-sans">
-                Silver Starred Award
-              </span>
-              <i data-lucide="sparkles" class="w-4 h-4 text-gold"></i>
+        <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-6 shadow-xl hover:border-ice transition-all space-y-2">
+          <div class="flex justify-between items-start">
+            <h3 class="heading-font text-white font-bold text-lg">Secondary School Certificate (SSC)</h3>
+            <div class="flex items-center gap-1.5 flex-wrap justify-end">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold bg-gold/15 text-gold border border-gold/40 whitespace-nowrap">Class 2nd Rank</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold bg-ice/15 text-ice border border-ice/40 whitespace-nowrap">GPA: 8.5</span>
             </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">21st Century Employability Skills Certificate</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Bestowed with the coveted <strong>Silver Starred Certificate</strong> from the Wadhwani Foundation in recognition of outstanding performance, leadership readiness, and proficiency across 21st-century workplace competencies.
-            </p>
           </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Wadhwani Foundation Employability Initiative
-          </div>
+          <p class="heading-font text-sm text-ice font-semibold">Sri Chaitanya Techno School, Palakol</p>
+          <p class="text-xs text-slate-400 font-sans">Passed Out: 2017 | Board of Secondary Education, AP</p>
+          <p class="justified-text text-xs text-slate-300 pt-2 leading-relaxed">
+            Secondary education emphasizing academic discipline and scientific fundamentals. Secured <strong class="text-white">Class 2nd Rank</strong> in final board examinations (8.5 GPA) and served as elected <strong class="text-white">Class Representative (CR)</strong>, exhibiting early student leadership and peer mentorship.
+          </p>
         </div>
+      </div>
 
-        <!-- 6. Yoga Andhra 2025 Guinness World Record (Ice Blue) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-ice/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-sans">
-                World Record
-              </span>
-              <i data-lucide="globe" class="w-4 h-4 text-iceLight"></i>
+      <div class="space-y-4 pt-4">
+        <h3 class="heading-font text-xl text-white font-semibold">Published Scientific Research &amp; Machine Learning Projects</h3>
+        <div class="space-y-4">
+          <div class="bg-cardBg/80 border border-gold/40 rounded-2xl p-6 shadow-lg hover:border-gold transition-all space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h4 class="heading-font text-white text-base font-bold">LSTM-Based Deep Learning Approach for Sentiment Classification of Flipkart Reviews</h4>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold bg-gold/15 text-gold border border-gold/40 w-fit">96.94% Accuracy | Published</span>
             </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">Yoga Andhra 2025 Guinness World Record</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Honored with an official participation certificate under the monumental <strong>Yoga Andhra 2025 Guinness World Record</strong> initiative, acknowledging disciplined contribution to the state-wide health record event.
+            <p class="text-xs text-gold font-medium">Domain: Deep Learning, Recurrent Neural Networks (LSTM), Natural Language Processing</p>
+            <p class="justified-text text-xs text-slate-300 leading-relaxed pt-1">
+              Engineered and benchmarked a long short-term memory (LSTM) neural network on a corpora of 21,904 Flipkart customer reviews. Orchestrated complete NLP preprocessing pipeline including custom tokenization, stop-word elimination, and vocabulary vectorization. The architecture achieved an outstanding 96.94% validation accuracy, accepted for academic publication in an AI &amp; NLP research forum.
             </p>
           </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Guinness World Record Official Initiative
-          </div>
-        </div>
 
-        <!-- 7. Class Representative Leadership (Gold) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-gold/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 rounded border border-gold/30 font-sans">
-                Elected Leadership
-              </span>
-              <i data-lucide="users" class="w-4 h-4 text-gold"></i>
+          <div class="bg-cardBg/80 border border-ice/40 rounded-2xl p-6 shadow-lg hover:border-ice transition-all space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h4 class="heading-font text-white text-base font-bold">Gut Microbiome Analysis &amp; Health State Prediction</h4>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold bg-ice/15 text-ice border border-ice/40 w-fit">Bio-Computational Data Science</span>
             </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">Class Representative (M.Sc. Computer Science)</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Unanimously elected as the <strong>Class Representative</strong> during M.Sc. Computer Science at Government College (Autonomous), Rajahmundry, recognized for exceptional coordination between student bodies and academic faculty.
+            <p class="text-xs text-ice font-medium">Domain: Machine Learning Pipelines, Taxonomic Profiling, Biomedical Data Analysis</p>
+            <p class="justified-text text-xs text-slate-300 leading-relaxed pt-1">
+              Constructed predictive classification workflows utilizing multi-dimensional taxonomic abundance datasets. Analyzed microbial biomarkers and their correlations with metabolic health profiles, training machine learning classifiers to predict biological states from high-dimensional biological telemetry.
             </p>
-          </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Government College (Autonomous), Rajahmundry
-          </div>
-        </div>
-
-        <!-- 8. Architecture & Development (Ice Blue) -->
-        <div class="bg-cardBg p-5 rounded-xl border border-slate-800 hover:border-ice/40 transition-all flex flex-col justify-between space-y-3">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-iceLight bg-ice/10 px-2.5 py-0.5 rounded-full border border-ice/30 font-sans">
-                Digital Engineering
-              </span>
-              <i data-lucide="code" class="w-4 h-4 text-iceLight"></i>
-            </div>
-            <h3 class="heading-font text-white text-[18px] font-bold">Personal Portfolio Architecture</h3>
-            <p class="justified-text text-[13px] text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2">
-              Architected and engineered a comprehensive, responsive executive portfolio platform adhering to high aesthetic standards, interactive modular tab architecture, and luxury design tokens.
-            </p>
-          </div>
-          <div class="pt-2 border-t border-slate-800/60 text-[10px] text-slate-400 font-sans">
-            Independent Technical Project
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB 5: PROJECTS ================= -->
-    <section id="content-projects" class="tab-content hidden space-y-8">
+    <!-- TAB: HONORS & FELICITATIONS -->
+    <section id="content-achievements" class="tab-content hidden space-y-8">
       <div class="border-b border-slate-800 pb-3">
-        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Research &amp; Key Projects</h2>
-        <p class="text-xs text-slate-400 mt-1">Applied artificial intelligence, neural networks, and systems engineering</p>
+        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Honors &amp; Felicitations</h2>
+        <p class="text-xs text-slate-400 mt-1 font-sans">Prestigious executive recognitions and distinguished civic felicitations</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-cardBg p-6 rounded-xl border border-slate-800 hover:border-gold/30 transition-all space-y-3 flex flex-col justify-between">
-          <div class="space-y-2">
-            <div class="flex items-center space-x-2 text-gold">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
-              <span class="text-xs font-semibold uppercase tracking-wider">Published Deep Learning Research</span>
+        <div id="service-excellence-card" class="bg-cardBg/90 border border-gold/50 rounded-2xl p-6 shadow-xl hover:border-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.25)] transition-all duration-500 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold">
+              <i data-lucide="award" class="w-5 h-5"></i>
             </div>
-            <h3 class="heading-font text-white text-lg font-bold">LSTM-Based Sentiment Classification of Flipkart Reviews</h3>
-            <p class="justified-text text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
-              Engineered a TensorFlow/Keras Long Short-Term Memory (LSTM) recurrent neural network architecture for multi-class sentiment classification on a corpus of 21,904 consumer reviews. Implemented advanced NLP preprocessing including tokenization, stop-word reduction, and stemming to achieve 96.94% validation accuracy, successfully published in an AI &amp; NLP research forum.
-            </p>
+            <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-gold px-2.5 py-0.5 rounded-full bg-gold/10 border border-gold/30">Executive Honor</span>
           </div>
-          <div class="pt-3 border-t border-slate-800/60 flex justify-between items-center text-xs">
-            <span class="text-gold font-medium">AI &amp; NLP Research Publication</span>
-            <span class="text-slate-400">96.94% Accuracy</span>
+
+          <!-- Felicitation Image Preview Frame - Uncropped Natural Fit (Full Faces Visible) -->
+          <div 
+            onclick="openFullscreenImage('https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w2000', 'Service Excellence Award Felicitation with Shri Murali Mohan Garu')" 
+            class="group cursor-pointer relative w-full h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden border-2 border-gold/60 bg-black/90 shadow-[0_0_25px_rgba(212,175,55,0.25)] hover:border-gold hover:shadow-[0_0_35px_rgba(212,175,55,0.5)] transition-all flex items-center justify-center">
+            <img 
+              src="https://drive.google.com/thumbnail?id=1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt&sz=w1600" 
+              alt="Service Excellence Felicitation Photo with Shri Murali Mohan Garu" 
+              class="w-full h-full object-contain object-center transition-all duration-300"
+              referrerpolicy="no-referrer"
+              onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1jOsohPLFrXs7XTJaHRth5TPcrTUyWtZt';"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian/95 via-obsidian/60 to-transparent p-3 flex items-center justify-between">
+              <span class="text-xs font-semibold text-gold drop-shadow flex items-center gap-1.5">
+                <i data-lucide="expand" class="w-4 h-4"></i>
+                <span>Tap anywhere for Full Screen</span>
+              </span>
+              <span class="text-[10px] uppercase font-bold text-slate-300 px-2 py-0.5 rounded bg-obsidian/90 border border-gold/30">Complete Photo View</span>
+            </div>
           </div>
+
+          <h3 class="heading-font text-white font-bold text-lg pt-1">Service Excellence Award — Facility Manager</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Conferred by former Member of Parliament <b>Shri Murali Mohan Garu</b>, presented via the <b>Shri P. V. Narasimha Rao Memorial Charitable Trust</b>, in formal appreciation of exemplary strategic workplace leadership, administrative diligence, and exceptional governance as Facility Manager.
+          </p>
         </div>
 
-        <div class="bg-cardBg p-6 rounded-xl border border-slate-800 hover:border-ice/30 transition-all space-y-3 flex flex-col justify-between">
-          <div class="space-y-2">
-            <div class="flex items-center space-x-2 text-iceLight">
-              <i data-lucide="layers" class="w-5 h-5"></i>
-              <span class="text-xs font-semibold uppercase tracking-wider">Enterprise Tooling &amp; Data Systems</span>
-            </div>
-            <h3 class="heading-font text-white text-lg font-bold">Automated Income Tax Verification &amp; Payroll Migration</h3>
-            <p class="justified-text text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800">
-              Designed data transformation scripts to transmute legacy Power Pay schemas into modern Java-based processing routines. Formulated audit deduplication checks across high-volume employee tax investment submissions (Chapter VI-A), reducing turnaround latency and achieving 100% statutory compliance sign-off.
-            </p>
+        <div id="district-1st-prize-card" class="bg-cardBg/90 border border-ice/50 rounded-2xl p-6 shadow-xl hover:border-ice hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all duration-500 space-y-2">
+          <div class="w-10 h-10 rounded-xl bg-ice/10 border border-ice/40 flex items-center justify-center text-ice mb-3">
+            <i data-lucide="trophy" class="w-5 h-5"></i>
           </div>
-          <div class="pt-3 border-t border-slate-800/60 flex justify-between items-center text-xs">
-            <span class="text-iceLight font-medium">Process Engineering</span>
-            <span class="text-slate-400">Zero-Variance Audit</span>
-          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-ice block">District Distinction</span>
+          <h3 class="heading-font text-white font-bold text-lg">District 1st Prize — National Highway Safety Month 2025</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Honored with the 1st Prize across the district by <b>P. Prashanthi, District Magistrate</b>, in recognition of outstanding performance, civic engagement, and public advocacy during the 2025 National Highway Safety Month initiative.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB: CONTACT ================= -->
+    <!-- TAB: ACHIEVEMENTS (DEDICATED CREDENTIALS) -->
+    <section id="content-certifications" class="tab-content hidden space-y-8">
+      <div class="border-b border-slate-800 pb-3">
+        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Honors &amp; Recognized Achievements</h2>
+        <p class="text-xs text-slate-400 mt-1 font-sans">Verified professional accolades, government commendations, leadership recognitions, and global records</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-5 shadow-lg hover:border-gold transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold mb-2">
+            <i data-lucide="award" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-gold block">Executive Honor</span>
+          <h3 class="heading-font text-white font-bold text-base">Service Excellence Award — Facility Manager</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Conferred by former Member of Parliament <b>Shri Murali Mohan Garu</b>, presented via the <b>Shri P. V. Narasimha Rao Memorial Charitable Trust</b>, in formal appreciation of exemplary strategic workplace leadership, administrative diligence, and exceptional governance as Facility Manager.
+          </p>
+        </div>
+
+        <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-5 shadow-lg hover:border-ice transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-ice/10 border border-ice/40 flex items-center justify-center text-ice mb-2">
+            <i data-lucide="trophy" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-ice block">District Distinction</span>
+          <h3 class="heading-font text-white font-bold text-base">District 1st Prize — National Highway Safety Month 2025</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Honored with the 1st Prize across the district by <b>P. Prashanthi, District Magistrate</b>, in recognition of outstanding performance, civic engagement, and public advocacy during the 2025 National Highway Safety Month initiative.
+          </p>
+        </div>
+
+        <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-5 shadow-lg hover:border-gold transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold mb-2">
+            <i data-lucide="medal" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-gold block">Government Recognition</span>
+          <h3 class="heading-font text-white font-bold text-base">Government of Andhra Pradesh Commendation</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Presented by the <b>Department of D.A.P.C.U. (District AIDS Prevention &amp; Control Unit)</b> in official acknowledgement of high-impact community mobilization, dedicated public service, and outstanding civic contributions.
+          </p>
+        </div>
+
+        <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-5 shadow-lg hover:border-ice transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-ice/10 border border-ice/40 flex items-center justify-center text-ice mb-2">
+            <i data-lucide="star" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-ice block">Academic Distinction</span>
+          <h3 class="heading-font text-white font-bold text-base">Mandal Level Highest Score — 21st Century Skills</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Recognized by the <b>Wadhwani Foundation</b> and the <b>Andhra Pradesh State Skill Development Corporation (APSSDC)</b> for securing the highest competency percentile at the Mandal level across advanced employability architectures.
+          </p>
+        </div>
+
+        <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-5 shadow-lg hover:border-gold transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold mb-2">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-gold block">Skill Certification</span>
+          <h3 class="heading-font text-white font-bold text-base">Silver Starred Certificate — Wadhwani Foundation</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Conferred for superior execution and advanced problem-solving methodologies within the 21st Century Employability Skills framework, validating workplace preparedness and strategic communication competencies.
+          </p>
+        </div>
+
+        <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-5 shadow-lg hover:border-ice transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-ice/10 border border-ice/40 flex items-center justify-center text-ice mb-2">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-ice block">Global Record</span>
+          <h3 class="heading-font text-white font-bold text-base">Guinness World Record Participant — Yoga Andhra 2025</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Certified participant in the historic <b>Yoga Andhra 2025</b> mass congregation, contributing to the official Guinness World Record for the largest synchronized wellness mobilization in regional history.
+          </p>
+        </div>
+
+        <div class="bg-cardBg/90 border border-gold/40 rounded-2xl p-5 shadow-lg hover:border-gold transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold mb-2">
+            <i data-lucide="users" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-gold block">Elected Leadership &amp; Merit</span>
+          <h3 class="heading-font text-white font-bold text-base">Class Representative (CR) &amp; SSC Class 2nd Rank</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Unanimously elected as <b>Class Representative (CR)</b> during M.Sc. Computer Science at Government College (Autonomous), and previously served as elected <b>Class Representative (CR)</b> in 10th Class (SSC) while securing <b>Class 2nd Rank in the SSC Final Board Examinations (8.5 GPA)</b>. Demonstrated long-standing academic merit, student coordination, faculty liaison, and institutional leadership.
+          </p>
+        </div>
+
+        <div class="bg-cardBg/90 border border-ice/40 rounded-2xl p-5 shadow-lg hover:border-ice transition-all space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-ice/10 border border-ice/40 flex items-center justify-center text-ice mb-2">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </div>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-ice block">System Architecture</span>
+          <h3 class="heading-font text-white font-bold text-base">Personal Portfolio Architecture</h3>
+          <p class="justified-text text-xs text-slate-300 leading-relaxed">
+            Conceptualized, designed, and engineered this comprehensive executive profile system utilizing modern single-file responsive architectures, Bell MT / Times typography matrices, and accessible visual ergonomics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: CONTACT -->
     <section id="content-contact" class="tab-content hidden space-y-8">
       <div class="border-b border-slate-800 pb-3">
-        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Executive Contact &amp; Engagement</h2>
-        <p class="text-xs text-slate-400 mt-1 font-sans">Direct corporate channels for strategic inquiries and professional opportunities</p>
+        <h2 class="heading-font text-2xl md:text-3xl text-white font-semibold">Contact &amp; Executive Coordinates</h2>
+        <p class="text-xs text-slate-400 mt-1 font-sans">Four direct touchpoint avenues with uncompressed addresses for prompt executive communication</p>
       </div>
 
-      <div class="max-w-5xl mx-auto bg-cardBg p-6 md:p-8 rounded-2xl border border-slate-800/90 shadow-2xl space-y-6">
-        <!-- Identity Summary Header -->
-        <div class="space-y-2 border-b border-slate-800/80 pb-5">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h3 class="heading-font text-2xl text-white font-bold tracking-wide">Pilli Lalith Sriharsha</h3>
-            <span class="text-[11px] text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/30 font-sans font-medium">
-              Available for Strategic Roles
-            </span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="tel:+919493471854" class="group bg-cardBg/90 border border-gold/40 rounded-2xl p-6 shadow-xl hover:border-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.25)] transition-all block space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform">
+            <i data-lucide="phone-call" class="w-6 h-6"></i>
           </div>
-          <p class="text-xs md:text-sm text-gold font-medium">
-            Facility Manager | Admin &amp; Customer Support Executive | Quality Analyst (ITV) &amp; Payroll Processor
-          </p>
-          <div class="flex items-center space-x-2 text-xs text-slate-400 font-sans pt-1">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-iceLight inline"></i>
-            <span class="heading-font text-[10px]">Kovvur / Rajahmundry, Andhra Pradesh, India</span>
+          <div>
+            <span class="text-[11px] font-sans font-bold uppercase tracking-widest text-gold block mb-1">Direct Telecommunication</span>
+            <p class="text-white text-base sm:text-lg font-bold font-sans tracking-wide">+91 94934 71854</p>
+            <p class="text-xs text-slate-400 mt-1">Available for official inquiries, immediate operational briefings, and leadership coordination.</p>
           </div>
-        </div>
+        </a>
 
-        <!-- Interactive Engagement Grid (All 4 cards with full text visibility, no cutting off) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
-          <!-- 1. Direct Phone Dialer Card -->
-          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-gold/50 transition-all flex flex-col justify-between space-y-4 group">
-            <div class="space-y-2.5">
-              <div class="flex items-center justify-between">
-                <div class="w-9 h-9 rounded-lg bg-obsidian border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(212,175,55,0.2)]">
-                  <i data-lucide="phone" class="w-4 h-4"></i>
-                </div>
-                <span class="text-[9px] uppercase tracking-wider font-bold text-gold bg-gold/10 px-2 py-0.5 rounded border border-gold/30 font-sans">
-                  Tap to Dial
-                </span>
-              </div>
-              <span class="text-xs text-slate-400 block font-sans">Primary Phone</span>
-              <p class="text-white font-medium text-sm tracking-wide group-hover:text-gold transition-colors select-all">
-                +91 94934 71854
-              </p>
-            </div>
-            <a href="tel:+919493471854" class="w-full text-center py-2 px-3 rounded-lg text-xs font-semibold bg-gold/15 text-gold border border-gold/40 hover:bg-gold hover:text-obsidian transition-all shadow-[0_0_10px_rgba(212,175,55,0.2)] flex items-center justify-center space-x-1.5 font-sans">
-              <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
-              <span>Call Now</span>
-            </a>
+        <a href="mailto:lalithsriharsha272@gmail.com" class="group bg-cardBg/90 border border-ice/40 rounded-2xl p-6 shadow-xl hover:border-ice hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all block space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-ice/10 border border-ice/40 flex items-center justify-center text-ice group-hover:scale-105 transition-transform">
+            <i data-lucide="mail" class="w-6 h-6"></i>
           </div>
-
-          <!-- 2. Direct Mail Composer Card -->
-          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-ice/50 transition-all flex flex-col justify-between space-y-4 group">
-            <div class="space-y-2.5">
-              <div class="flex items-center justify-between">
-                <div class="w-9 h-9 rounded-lg bg-obsidian border border-ice/40 flex items-center justify-center text-iceLight group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(56,189,248,0.2)]">
-                  <i data-lucide="mail" class="w-4 h-4"></i>
-                </div>
-                <span class="text-[9px] uppercase tracking-wider font-bold text-iceLight bg-ice/10 px-2 py-0.5 rounded border border-ice/30 font-sans">
-                  Tap to Write
-                </span>
-              </div>
-              <span class="text-xs text-slate-400 block font-sans">Official Email</span>
-              <p class="text-white font-medium text-[11.5px] leading-snug tracking-normal group-hover:text-iceLight transition-colors break-all select-all">
-                lalithsriharsha272@gmail.com
-              </p>
-            </div>
-            <a href="mailto:lalithsriharsha272@gmail.com?subject=Strategic%20Opportunity%20Inquiry%20-%20P.%20Lalith%20Sriharsha&body=Dear%20Sriharsha%2C%0A%0AWe%20would%20like%20to%20connect%20regarding%20an%20executive%20opportunity..." class="w-full text-center py-2 px-3 rounded-lg text-xs font-semibold bg-ice/15 text-iceLight border border-ice/40 hover:bg-ice hover:text-obsidian transition-all shadow-[0_0_10px_rgba(56,189,248,0.2)] flex items-center justify-center space-x-1.5 font-sans">
-              <i data-lucide="send" class="w-3.5 h-3.5"></i>
-              <span>Compose Mail</span>
-            </a>
+          <div>
+            <span class="text-[11px] font-sans font-bold uppercase tracking-widest text-ice block mb-1">Confidential Correspondence</span>
+            <p class="text-white text-base sm:text-lg font-bold font-sans break-all">lalithsriharsha272@gmail.com</p>
+            <p class="text-xs text-slate-400 mt-1">Primary communication channel for document verification, corporate onboarding, and formal proposals.</p>
           </div>
+        </a>
 
-          <!-- 3. LinkedIn Official Profile Card -->
-          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-gold/50 transition-all flex flex-col justify-between space-y-4 group">
-            <div class="space-y-2.5">
-              <div class="flex items-center justify-between">
-                <div class="w-9 h-9 rounded-lg bg-obsidian border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(212,175,55,0.2)]">
-                  <svg class="w-4 h-4 fill-current text-[#0A66C2] group-hover:text-gold transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.68 1.68 0 1 0 0-3.36 1.68 1.68 0 0 0 0 3.36M7.85 18.5V10.13H5.06v8.37h2.79z"/>
-                  </svg>
-                </div>
-                <span class="text-[9px] uppercase tracking-wider font-bold text-gold bg-gold/10 px-2 py-0.5 rounded border border-gold/30 font-sans">
-                  Professional Link
-                </span>
-              </div>
-              <span class="text-xs text-slate-400 block font-sans">LinkedIn Network</span>
-              <p class="text-white font-medium text-[11.5px] leading-snug tracking-normal group-hover:text-gold transition-colors break-all">
-                in/pilli-lalith-sriharsha
-              </p>
-            </div>
-            <a href="https://www.linkedin.com/in/pilli-lalith-sriharsha-5a9780305?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2 px-3 rounded-lg text-xs font-semibold bg-gold/15 text-gold border border-gold/40 hover:bg-gold hover:text-obsidian transition-all shadow-[0_0_10px_rgba(212,175,55,0.2)] flex items-center justify-center space-x-1.5 font-sans">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.68 1.68 0 1 0 0-3.36 1.68 1.68 0 0 0 0 3.36M7.85 18.5V10.13H5.06v8.37h2.79z"/>
-              </svg>
-              <span>View Profile ↗</span>
-            </a>
+        <a href="https://www.linkedin.com/in/pilli-lalith-sriharsha-5a9780305" target="_blank" rel="noopener noreferrer" class="group bg-cardBg/90 border border-gold/40 rounded-2xl p-6 shadow-xl hover:border-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.25)] transition-all block space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 transition-transform">
+            <i data-lucide="linkedin" class="w-6 h-6"></i>
           </div>
-
-          <!-- 4. Official Website Card -->
-          <div class="bg-deepNavy/80 p-4 rounded-xl border border-slate-800 hover:border-ice/50 transition-all flex flex-col justify-between space-y-4 group">
-            <div class="space-y-2.5">
-              <div class="flex items-center justify-between">
-                <div class="w-9 h-9 rounded-lg bg-obsidian border border-ice/40 flex items-center justify-center text-iceLight group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(56,189,248,0.2)]">
-                  <i data-lucide="globe" class="w-4 h-4"></i>
-                </div>
-                <span class="text-[9px] uppercase tracking-wider font-bold text-iceLight bg-ice/10 px-2 py-0.5 rounded border border-ice/30 font-sans">
-                  Web Portal
-                </span>
-              </div>
-              <span class="text-xs text-slate-400 block font-sans">Official Website</span>
-              <p class="text-white font-medium text-[11.5px] leading-snug tracking-normal group-hover:text-iceLight transition-colors break-all">
-                sites.google.com/view/lalith-sriharsha
-              </p>
-            </div>
-            <a href="https://sites.google.com/view/lalith-sriharsha/home" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2 px-3 rounded-lg text-xs font-semibold bg-ice/15 text-iceLight border border-ice/40 hover:bg-ice hover:text-obsidian transition-all shadow-[0_0_10px_rgba(56,189,248,0.2)] flex items-center justify-center space-x-1.5 font-sans">
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              <span>Visit Website ↗</span>
-            </a>
+          <div>
+            <span class="text-[11px] font-sans font-bold uppercase tracking-widest text-gold block mb-1">Executive Network Profile</span>
+            <p class="text-white text-base sm:text-lg font-bold font-sans break-all">https://www.linkedin.com/in/pilli-lalith-sriharsha-5a9780305</p>
+            <p class="text-xs text-slate-400 mt-1">Connect on LinkedIn to review shared professional relationships and institutional affiliations.</p>
           </div>
-        </div>
+        </a>
 
+        <a href="https://sites.google.com/view/lalith-sriharsha/home" target="_blank" rel="noopener noreferrer" class="group bg-cardBg/90 border border-ice/40 rounded-2xl p-6 shadow-xl hover:border-ice hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all block space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-ice/10 border border-ice/40 flex items-center justify-center text-ice group-hover:scale-105 transition-transform">
+            <i data-lucide="globe" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-sans font-bold uppercase tracking-widest text-ice block mb-1">Official Portfolio Website</span>
+            <p class="text-white text-base sm:text-lg font-bold font-sans break-all">https://sites.google.com/view/lalith-sriharsha/home</p>
+            <p class="text-xs text-slate-400 mt-1">Explore my complete academic repository, operational background, and verified credentials.</p>
+          </div>
+        </a>
       </div>
     </section>
+
   </main>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer class="mt-auto border-t border-slate-800/80 bg-deepNavy/60 py-6">
     <div class="max-w-6xl w-full mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
       <div class="flex items-center space-x-2">
@@ -994,59 +698,133 @@
         <span class="heading-font text-slate-300 font-bold italic">Luxurious Profile Portfolio</span>
       </div>
       <p class="text-slate-500 font-sans text-center sm:text-right">
-        &copy; 2026 Pilli Lalith Sriharsha. All rights reserved.
+        &copy; 2026 Pilli Lalith Sriharsha. All rights reserved. Designed for official records &amp; executive review.
       </p>
     </div>
   </footer>
 
+  <!-- FULL SCREEN RESPONSIVE IMAGE VIEWER MODAL -->
+  <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-obsidian/95 backdrop-blur-xl flex flex-col items-center justify-center p-2 sm:p-6 transition-all duration-300">
+    <!-- Top Modal Controls -->
+    <div class="w-full max-w-6xl flex items-center justify-between px-3 py-2 border-b border-slate-800/80 mb-2">
+      <div class="flex items-center gap-2">
+        <div class="w-2.5 h-2.5 rounded-full bg-gold animate-pulse"></div>
+        <span id="modal-caption" class="heading-font text-xs sm:text-sm text-gold font-bold tracking-wider truncate">Felicitation Award Preview</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button 
+          onclick="toggleModalFullscreen()" 
+          class="p-2 rounded-xl bg-slate-900 border border-gold/40 text-gold hover:bg-gold/20 hover:border-gold transition-all" 
+          title="Toggle Browser Fullscreen">
+          <i data-lucide="maximize" class="w-4 h-4"></i>
+        </button>
+        <button 
+          onclick="closeFullscreenImage()" 
+          class="p-2 rounded-xl bg-slate-900 border border-red-500/40 text-red-400 hover:bg-red-500/20 hover:border-red-400 transition-all" 
+          title="Close (Esc)">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Responsive Container that fills maximum available screen area on ANY device -->
+    <div class="relative w-full h-[85vh] sm:h-[88vh] flex items-center justify-center p-1 sm:p-2">
+      <img 
+        id="modal-image" 
+        src="" 
+        alt="Full Screen View" 
+        class="max-w-full max-h-full object-contain rounded-xl border border-gold/50 shadow-[0_0_50px_rgba(212,175,55,0.35)] transition-transform duration-300"
+        referrerpolicy="no-referrer"
+      />
+    </div>
+
+    <p class="text-[11px] text-slate-400 font-sans mt-2">Pinch or zoom on mobile, or press <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-gold border border-slate-700 text-[10px]">ESC</kbd> to close.</p>
+  </div>
+
+  <!-- JAVASCRIPT ENGINE -->
   <script>
-    const tabThemeConfig = {
-      'home': { activeText: 'text-gold', activeBg: 'bg-gold/20', activeBorder: 'border-gold/50', glow: 'shadow-[0_0_12px_rgba(212,175,55,0.3)]' },
-      'experience': { activeText: 'text-iceLight', activeBg: 'bg-ice/20', activeBorder: 'border-ice/50', glow: 'shadow-[0_0_12px_rgba(56,189,248,0.3)]' },
-      'education': { activeText: 'text-gold', activeBg: 'bg-gold/20', activeBorder: 'border-gold/50', glow: 'shadow-[0_0_12px_rgba(212,175,55,0.3)]' },
-      'achievements': { activeText: 'text-iceLight', activeBg: 'bg-ice/20', activeBorder: 'border-ice/50', glow: 'shadow-[0_0_12px_rgba(56,189,248,0.3)]' },
-      'contact': { activeText: 'text-gold', activeBg: 'bg-gold/20', activeBorder: 'border-gold/50', glow: 'shadow-[0_0_12px_rgba(212,175,55,0.3)]' }
-    };
+    function openFullscreenImage(imgSrc, captionText) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-image');
+      const modalCap = document.getElementById('modal-caption');
+
+      if (modal && modalImg) {
+        modalImg.src = imgSrc;
+        if (modalCap && captionText) {
+          modalCap.textContent = captionText;
+        }
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      }
+    }
+
+    function closeFullscreenImage() {
+      const modal = document.getElementById('image-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        if (document.fullscreenElement) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    function toggleModalFullscreen() {
+      const modal = document.getElementById('image-modal');
+      if (!document.fullscreenElement) {
+        if (modal.requestFullscreen) {
+          modal.requestFullscreen().catch(() => {});
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    // Close on Escape Key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeFullscreenImage();
+      }
+    });
+
+    // Close modal when tapping outside the image container
+    document.getElementById('image-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'image-modal') {
+        closeFullscreenImage();
+      }
+    });
 
     function switchTab(tabId) {
-      // 1. Hide all tab panes
-      const contents = document.querySelectorAll('.tab-content');
-      contents.forEach(content => {
-        content.classList.add('hidden');
-        content.classList.remove('block');
-      });
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.add('hidden'));
 
-      // 2. Show active tab pane
-      const activeContent = document.getElementById('content-' + tabId);
-      if (activeContent) {
-        activeContent.classList.remove('hidden');
-        activeContent.classList.add('block');
+      const activeTab = document.getElementById('content-' + tabId);
+      if (activeTab) {
+        activeTab.classList.remove('hidden');
       }
 
-      // 3. Reset desktop nav button states
       const buttons = document.querySelectorAll('.nav-btn');
       buttons.forEach(btn => {
-        btn.classList.remove(
-          'text-gold', 'bg-gold/20', 'border-gold/50', 'shadow-[0_0_12px_rgba(212,175,55,0.3)]',
-          'text-iceLight', 'bg-ice/20', 'border-ice/50', 'shadow-[0_0_12px_rgba(56,189,248,0.3)]'
-        );
+        btn.classList.remove('text-gold', 'text-iceLight', 'bg-gold/20', 'bg-ice/20', 'border-gold/50', 'border-ice/50', 'shadow-[0_0_12px_rgba(212,175,55,0.3)]', 'shadow-[0_0_12px_rgba(56,189,248,0.3)]');
         btn.classList.add('text-silver', 'border-transparent');
       });
 
-      // 4. Apply alternating active styling
       const activeBtn = document.getElementById('tab-' + tabId);
-      const theme = tabThemeConfig[tabId] || tabThemeConfig['home'];
       if (activeBtn) {
         activeBtn.classList.remove('text-silver', 'border-transparent');
-        activeBtn.classList.add(theme.activeText, theme.activeBg, theme.activeBorder, theme.glow);
+        if (tabId === 'experience' || tabId === 'achievements') {
+          activeBtn.classList.add('text-iceLight', 'bg-ice/20', 'border-ice/50', 'shadow-[0_0_12px_rgba(56,189,248,0.3)]');
+        } else {
+          activeBtn.classList.add('text-gold', 'bg-gold/20', 'border-gold/50', 'shadow-[0_0_12px_rgba(212,175,55,0.3)]');
+        }
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function switchTabMobile(tabId) {
-      switchTab(tabId);
-      toggleMobileMenu();
     }
 
     function toggleMobileMenu() {
@@ -1056,21 +834,31 @@
       }
     }
 
-    // Direct Website Code Downloader Function
-    function downloadWebsiteCode() {
-      const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'index.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+    function switchTabMobile(tabId) {
+      switchTab(tabId);
+      const menu = document.getElementById('mobile-menu');
+      if (menu) {
+        menu.classList.add('hidden');
+      }
     }
 
-    // Initialize Lucide icons on DOM ready
+    function navigateToAward(targetCardId) {
+      // 1. Switch directly to Honours & Felicitations tab
+      switchTab('achievements');
+      
+      // 2. Smoothly scroll into view and briefly pulse/glow the targeted card
+      setTimeout(() => {
+        const targetElement = document.getElementById(targetCardId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetElement.classList.add('ring-2', 'ring-ice', 'scale-[1.02]', 'shadow-[0_0_30px_rgba(56,189,248,0.6)]');
+          setTimeout(() => {
+            targetElement.classList.remove('ring-2', 'ring-ice', 'scale-[1.02]', 'shadow-[0_0_30px_rgba(56,189,248,0.6)]');
+          }, 2000);
+        }
+      }, 250);
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
